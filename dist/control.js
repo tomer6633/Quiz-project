@@ -23,5 +23,21 @@ function shuffle(cards) {
     }
     return cards;
 }
-function renderCard(cards, renderElenentId) {
+function renderCards(cards, renderElementId) {
+    try {
+        if (!cards || !Array.isArray(cards))
+            throw new Error("cards is not an array");
+        var htmlCard = cards
+            .map(function (cards) {
+            return "\n          <div class=\"cards\">\n          <div><img src=\"" + cards.PictureURL + "\" alt=\"\"></div>\n      </div>\n          ";
+        })
+            .join(" ");
+        var element = document.querySelector("#" + renderElementId);
+        if (!element)
+            throw new Error("couldent find element ");
+        element.innerHTML = htmlCard;
+    }
+    catch (error) {
+        console.error(error);
+    }
 }

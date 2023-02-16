@@ -2,8 +2,7 @@ const dupicatedCards = [...cards, ...cards];
 const shuffleArray = shuffle(dupicatedCards);
 
 function shuffle(cards) {
-  let currentIndex = cards.length,
-    randomIndex;
+  let currentIndex = cards.length,randomIndex;
 
   // While there remain elements to shuffle.
   while (currentIndex != 0) {
@@ -21,8 +20,25 @@ function shuffle(cards) {
 }
 
 
-function renderCard(cards:Card[],renderElenentId){
+function renderCards(cards:Card[],renderElementId):void{
+  try {   
+      if(!cards|| !Array.isArray(cards))
+      throw new Error(`cards is not an array`)
+      const htmlCard= cards
+      .map((cards)=>{
+          return`
+          <div class="cards">
+          <div><img src="${cards.PictureURL}" alt=""></div>
+      </div>
+          `
 
-
-
+      })
+      .join(` `)
+      const element = document.querySelector(`#${renderElementId}`);
+      if(!element) throw new Error(`couldent find element `)
+      element.innerHTML=htmlCard;
+  } catch (error) {
+      console.error(error)
+  }
 }
+

@@ -1,0 +1,8 @@
+.board {
+  height: 1000px;
+}
+
+#cards img {
+  width: 100px;
+  height: 100px;
+}
