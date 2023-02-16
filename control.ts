@@ -42,8 +42,11 @@ function renderCards(cards:Card[],renderElementId):void{
 }
 
 function turnCards (): void{
-  const turn: HTMLElement | null =document.querySelector(".card");
+  const turn: any =document.querySelectorAll(".card");
 
-turn?.addEventListener('click', () => turn.style.backgroundColor = 'red')
+turn.forEach((turn) =>{
+  turn.addEventListener("click", (event) => {
+    turn.style.backgroundColor = 'blue';
+  });
 }
-
+)}

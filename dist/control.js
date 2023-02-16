@@ -42,6 +42,10 @@ function renderCards(cards, renderElementId) {
     }
 }
 function turnCards() {
-    var turn = document.querySelector(".card");
-    turn === null || turn === void 0 ? void 0 : turn.addEventListener('click', function () { return turn.style.backgroundColor = 'red'; });
+    var turn = document.querySelectorAll(".card");
+    turn.forEach(function (turn) {
+        turn.addEventListener("click", function (event) {
+            turn.style.backgroundColor = 'blue';
+        });
+    });
 }
