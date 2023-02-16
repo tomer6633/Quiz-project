@@ -27,14 +27,13 @@ function renderCards(cards:Card[],renderElementId):void{
       const htmlCard= cards
       .map((cards)=>{
           return`
-          <div class="cards">
-          <div><img src="${cards.PictureURL}" alt=""></div>
-      </div>
+          <div class="card" onclick="turnCards()">
+          <img src="${cards.PictureURL}" alt="">
+       </div>
           `
-
       })
       .join(` `)
-      const element = document.querySelector(`#${renderElementId}`);
+      const element = document.querySelector(`.${renderElementId}`);
       if(!element) throw new Error(`couldent find element `)
       element.innerHTML=htmlCard;
   } catch (error) {
@@ -42,10 +41,9 @@ function renderCards(cards:Card[],renderElementId):void{
   }
 }
 
-function addEventListener (){
-  const turn =document.getElementById("cards");
-  turn.addEventListener("click", (event) => {
-    turn?.style.backgroundImage='black';
-    console.log(event);
-  });
+function turnCards (): void{
+  const turn: HTMLElement | null =document.querySelector(".card");
+
+turn?.addEventListener('click', () => turn.style.backgroundColor = 'red')
 }
+

@@ -29,10 +29,10 @@ function renderCards(cards, renderElementId) {
             throw new Error("cards is not an array");
         var htmlCard = cards
             .map(function (cards) {
-            return "\n          <div class=\"cards\">\n          <div><img src=\"" + cards.PictureURL + "\" alt=\"\"></div>\n      </div>\n          ";
+            return "\n          <div class=\"card\" onclick=\"turnCards()\">\n          <img src=\"" + cards.PictureURL + "\" alt=\"\">\n       </div>\n          ";
         })
             .join(" ");
-        var element = document.querySelector("#" + renderElementId);
+        var element = document.querySelector("." + renderElementId);
         if (!element)
             throw new Error("couldent find element ");
         element.innerHTML = htmlCard;
@@ -41,10 +41,7 @@ function renderCards(cards, renderElementId) {
         console.error(error);
     }
 }
-function addEventListener() {
-    var turn = document.getElementById("cards");
-    turn.addEventListener("click", function (event) {
-        turn === null || turn === void 0 ? void 0 : turn.style.backgroundImage = 'black';
-        console.log(event);
-    });
+function turnCards() {
+    var turn = document.querySelector(".card");
+    turn === null || turn === void 0 ? void 0 : turn.addEventListener('click', function () { return turn.style.backgroundColor = 'red'; });
 }
