@@ -42,4 +42,9 @@ function renderCards(cards, renderElementId) {
     }
 }
 function addEventListener() {
+    var turn = document.getElementById("cards");
+    turn.addEventListener("click", function (event) {
+        turn === null || turn === void 0 ? void 0 : turn.style.backgroundImage = 'black';
+        console.log(event);
+    });
 }

@@ -43,5 +43,9 @@ function renderCards(cards:Card[],renderElementId):void{
 }
 
 function addEventListener (){
-
+  const turn =document.getElementById("cards");
+  turn.addEventListener("click", (event) => {
+    turn?.style.backgroundImage='black';
+    console.log(event);
+  });
 }
