@@ -41,3 +41,5 @@ function renderCards(cards, renderElementId) {
         console.error(error);
     }
 }
+function addEventListener() {
+}

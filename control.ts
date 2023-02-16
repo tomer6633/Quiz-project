@@ -42,3 +42,6 @@ function renderCards(cards:Card[],renderElementId):void{
   }
 }
 
+function addEventListener (){
+
+}
