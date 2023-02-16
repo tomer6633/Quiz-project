@@ -21,3 +21,8 @@ function shuffle(cards) {
 }
 
 
+function renderCard(cards:Card[],renderElenentId){
+
+
+
+}

@@ -23,3 +23,5 @@ function shuffle(cards) {
     }
     return cards;
 }
+function renderCard(cards, renderElenentId) {
+}
