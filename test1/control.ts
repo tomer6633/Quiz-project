@@ -46,7 +46,7 @@ function turnCards (): void{
 
 turn.forEach((turn) =>{
   turn.addEventListener("click", (event) => {
-    turn.style.backgroundColor = 'blue';
+    turn.style.backgroundcolor = 'blue';
   });
 }
 )}

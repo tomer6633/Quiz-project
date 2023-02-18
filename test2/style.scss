@@ -1,0 +1,55 @@
+$card-width: 150px;
+$card-height: 200px;
+$card-gap: 20px;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: $card-width;
+  height: $card-height;
+  margin: $card-gap / 2;
+  position: relative;
+  perspective: 1000px;
+
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: rgb(168, 37, 37);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .front {
+    transform: rotateY(0deg);
+    gap: 20px;
+    img{
+        width: 150px;
+        height: 200px;
+    }
+  }
+
+  .back {
+    transform: rotateY(180deg);
+    gap: 20px;
+    img{
+        width: 150px;
+        height: 200px;
+    }
+  }
+
+  &.flipped .front {
+    transform: rotateY(-180deg);
+  }
+
+  &.flipped .back {
+    transform: rotateY(0deg);
+  }
+}

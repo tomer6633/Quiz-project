@@ -1,0 +1,1 @@
+renderCards(shuffleArray, "cards");

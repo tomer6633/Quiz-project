@@ -45,7 +45,7 @@ function turnCards() {
     var turn = document.querySelectorAll(".card");
     turn.forEach(function (turn) {
         turn.addEventListener("click", function (event) {
-            turn.style.backgroundColor = 'blue';
+            turn.style.backgroundcolor = 'blue';
         });
     });
 }
