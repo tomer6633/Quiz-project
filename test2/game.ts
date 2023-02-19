@@ -16,7 +16,7 @@ cards.push(new Card("C","data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCE
 
 let possibleCards = cards.concat(cards);
 
-document.querySelectorAll('.card').forEach(cards => {
+document.querySelectorAll('.FlippedCard').forEach(cards => {
     cards.addEventListener('click', () => {
       cards.classList.toggle('flipped');
     });
@@ -24,21 +24,26 @@ document.querySelectorAll('.card').forEach(cards => {
   
   function renderCards(cards:Card[]):void{
     try {   
-      
         if(!cards|| !Array.isArray(cards))
         throw new Error(`cards is not an array`)
-        const htmlCard= cards
-        .map((cards)=>{
-            return`
-            <div >
-            <img src="${cards.PictureURL}" alt="">
-          </div>
-            `
-        })
-        .join(` `)
-        const element = document.querySelector(`.back`);
-        if(!element) throw new Error(`couldent find element `)
-        element.innerHTML=htmlCard;
+        debugger;
+        let htmlCard=""
+        for (let i=0;i<=cards.length-1;i++){
+          htmlCard= `<div class="FlippedCard"> <img src="${cards[i].PictureURL}" alt=""> </div>`
+          const container=document.getElementById("test")
+          const cardDiv=document.createElement("div")
+          cardDiv.id=i.toString()
+          cardDiv.className="card"
+          cardDiv.innerHTML=htmlCard;
+          container?.appendChild(cardDiv)
+          cardDiv.onclick = clickCard;
+          console.log(cardDiv)
+
+        
+        // const element = document.querySelector(`.back`);
+        // if(!element) throw new Error(`couldent find element `)
+        // element.innerHTML=htmlCard;
+      }
     } catch (error) {
         console.error(error)
     }
@@ -46,4 +51,6 @@ document.querySelectorAll('.card').forEach(cards => {
   }
   renderCards(cards)
 
-console.log(cards)
+function clickCard(ev){
+    
+}
