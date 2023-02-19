@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50vh;
+  margin-top: 25vh;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: darkblue;
+  color: transparent;
+  display: flex;
+  font-size: xx-large;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.show {
+  animation: show 1s forwards;
+}
+
+@keyframes show {
+  0% {
+    background-color: darkblue;
+    color: transparent;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
+.hide {
+  animation: hide 1s forwards;
+}
+
+@keyframes hide {
+  0% {
+    background-color: white;
+    color: black;
+  }
+  100% {
+    background-color: darkblue;
+    color: transparent;
+  }
+}
