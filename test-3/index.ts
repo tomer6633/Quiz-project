@@ -9,8 +9,8 @@ let score = 0;
 boxes.forEach(function(box) {
     let randomNum = Math.floor(Math.random() * 12);        
     box.style.order = randomNum;
-
-    box.addEventListener('click', function() {
+    scoreDisplay.textContent = "score:" + score;
+    box.addEventListener('click', function Game() {
         if (!first && !second) {
             first = box;
             box.classList.add('show');
@@ -24,8 +24,8 @@ boxes.forEach(function(box) {
                 second = null;
                 matchCounter++;
                 score += 10;
-                scoreDisplay.textContent = score;
-                if (matchCounter >= 6) setTimeout(() => alert(`Game done! Your score is ${score}. Refresh page to replay.`), 2000 );
+                scoreDisplay.textContent = "score:"+score;
+                if (matchCounter >= 6) setTimeout(() => alert(`Game done! Your score is ${score} Refresh page to replay.`), 2000 );
             } else {
                 first.classList.add('hide');
                 second.classList.add('hide');
@@ -38,10 +38,11 @@ boxes.forEach(function(box) {
                     second = null;
                     score -= 2;
                     if (score < 0) score = 0;
-                    scoreDisplay.textContent = score;
+                    scoreDisplay.textContent = "score:" + score;
                 }, 2000);
             }
         }
 
     })
 });
+

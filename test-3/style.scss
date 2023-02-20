@@ -14,12 +14,16 @@ main {
     justify-content: center;
     margin-left: 50vh;
     margin-top: 25vh;
+
 }
 
 .box {
-    
-    width: 150px;
-    height: 150px;
+    img{
+        width: 10vw;
+        height: 12.5vh;
+    }
+    width: 10vw;
+    height: 12.5vh;
     background-color: darkblue;
     color: transparent;
     display: flex;
@@ -30,6 +34,7 @@ main {
     border: 1px solid black;
     cursor: pointer;
 }
+
 
 .show {
     animation: show 1s forwards;
@@ -62,3 +67,15 @@ main {
         color: transparent;
     }
 }
+
+#score {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
