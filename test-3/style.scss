@@ -21,11 +21,14 @@ main {
     img{
         width: 10vw;
         height: 12.5vh;
+        opacity: 1;
     }
     width: 10vw;
     height: 12.5vh;
     background-color: darkblue;
     color: transparent;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
     display: flex;
     font-size: xx-large;
     font-weight: bold;
@@ -33,38 +36,52 @@ main {
     justify-content: center;
     border: 1px solid black;
     cursor: pointer;
+
 }
 
 
 .show {
-    animation: show 1s forwards;
+    animation: show 2s forwards;
+    transform: rotateY(180deg);
 }
 
 @keyframes show {
     0% {
         background-color: darkblue;
         color: transparent;
-    }
+        opacity: 1;
 
+    }
+    20%{
+        opacity: 0.5;
+    }
     100% {
-        background-color: white;
+        background-color: rgb(255, 0, 0);
         color: black;
+        opacity: 1;
+
     }
 }
 
 .hide {
-    animation: hide 1s forwards;
+    animation: hide 2s forwards;
+    transform: rotateY(180deg);
 }
 
 @keyframes hide {
     0% {
-        background-color: white;
+        background-color: rgb(255, 0, 0);
         color: black;
+        opacity: 1;
+    }
+    80%{
+        opacity: 0.5;
     }
 
     100% {
         background-color: darkblue;
         color: transparent;
+        opacity: 0;
     }
 }
 

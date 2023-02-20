@@ -1,12 +1,14 @@
 const boxes = document.querySelectorAll('.box');
 const scoreDisplay:any = document.querySelector('#score');
 
+
 let first;
 let second;
 let matchCounter = 0;
 let score = 0;
 
 boxes.forEach(function(box) {
+    // מסדר את הbox במסך בסדר אקראי לפי מספר 
     let randomNum = Math.floor(Math.random() * 12);        
     box.style.order = randomNum;
     scoreDisplay.textContent = "score:" + score;
@@ -18,8 +20,8 @@ boxes.forEach(function(box) {
             second = box;
             box.classList.add('show');
             if (first.innerHTML === second.innerHTML) {
-                first.style.pointerEvents = 'none';
-                second.style.pointerEvents = 'none';
+                // first.style.pointerEvents = 'none';
+                // second.style.pointerEvents = 'none';
                 first = null;
                 second = null;
                 matchCounter++;
