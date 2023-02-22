@@ -1,5 +1,32 @@
 var boxes = document.querySelectorAll('.box');
 var scoreDisplay = document.querySelector('#score');
+//timer and push
+var intervalId;
+var time = 0;
+var lastStopTime = 0;
+var startButton = document.querySelector(".start");
+var stopButton = document.querySelector(".stop");
+var resumeButton = document.querySelector(".resume");
+var timeDisplay = document.querySelector(".time");
+startButton.addEventListener("click", function () {
+    if (!intervalId) {
+        intervalId = setInterval(function () {
+            time += 1;
+            timeDisplay.textContent = time.toString();
+        }, 1000);
+    }
+});
+stopButton.addEventListener("click", function () {
+    lastStopTime = time;
+    clearInterval(intervalId);
+    intervalId = undefined;
+});
+resumeButton.addEventListener("click", function () {
+    clearInterval(intervalId);
+    intervalId = undefined;
+    time = 0;
+    timeDisplay.textContent = "00:00";
+});
 var first;
 var second;
 var matchCounter = 0;
@@ -47,3 +74,5 @@ boxes.forEach(function (box) {
         }
     });
 });
+function Game() {
+}

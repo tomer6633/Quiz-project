@@ -2,6 +2,40 @@ const boxes = document.querySelectorAll('.box');
 const scoreDisplay:any = document.querySelector('#score');
 
 
+//timer and push
+let intervalId;
+let time = 0;
+let lastStopTime = 0;
+
+const startButton = document.querySelector(".start") as HTMLButtonElement;
+const stopButton = document.querySelector(".stop") as HTMLButtonElement;
+const resumeButton = document.querySelector(".resume") as HTMLButtonElement;
+const timeDisplay = document.querySelector(".time") as HTMLHeadingElement;
+
+startButton.addEventListener("click", () => {
+  if (!intervalId) {
+    intervalId = setInterval(() => {
+      time += 1;
+      timeDisplay.textContent = time.toString();
+    }, 1000);
+  }
+});
+
+stopButton.addEventListener("click", () => {
+  lastStopTime = time;
+  clearInterval(intervalId);
+  intervalId = undefined;
+});
+
+resumeButton.addEventListener("click", () => {
+    clearInterval(intervalId);
+    intervalId = undefined;
+    time = 0;
+    timeDisplay.textContent = "00:00";
+  });
+
+
+
 let first;
 let second;
 let matchCounter = 0;
@@ -47,4 +81,9 @@ boxes.forEach(function(box) {
 
     })
 });
+
+function Game(){
+
+}
+
 
