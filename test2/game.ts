@@ -21,38 +21,15 @@ document.querySelectorAll('.card').forEach(card => {
     });
   });
   
-  // function renderCards(cards:Card[],renderElementId):void{
-  //   try {   
-      
-  //       if(!cards|| !Array.isArray(cards))
-  //       throw new Error(`cards is not an array`)
-  //       const htmlCard= cards
-  //       .map((cards)=>{
-  //           return`
-  //           <div>
-  //           <img src="${cards.PictureURL}" alt="">
-  //         </div>
-  //           `
-  //       })
-  //       .join(` `)
-  //       const element = document.querySelector(`.${renderElementId}`);
-  //       if(!element) throw new Error(`couldent find element `)
-  //       element.innerHTML=htmlCard;
-  //   } catch (error) {
-  //       console.error(error)
-  //   }
-  // }
-  // renderCards(cards,"back")
   function renderCards(cards:Card[],renderElementId):void{
     try {   
       
-        if(!cards|| !Array.isArray(cards)){ 
-          throw new Error(`cards is not an array`)}
-       
+        if(!cards|| !Array.isArray(cards))
+        throw new Error(`cards is not an array`)
         const htmlCard= cards
         .map((cards)=>{
             return`
-            <div class ='front'>
+            <div>
             <img src="${cards.PictureURL}" alt="">
           </div>
             `
@@ -66,4 +43,5 @@ document.querySelectorAll('.card').forEach(card => {
     }
   }
   renderCards(cards,"back")
+
 console.log(cards)

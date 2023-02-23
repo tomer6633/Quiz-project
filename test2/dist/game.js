@@ -15,35 +15,13 @@ document.querySelectorAll('.card').forEach(function (card) {
         card.classList.toggle('flipped');
     });
 });
-// function renderCards(cards:Card[],renderElementId):void{
-//   try {   
-//       if(!cards|| !Array.isArray(cards))
-//       throw new Error(`cards is not an array`)
-//       const htmlCard= cards
-//       .map((cards)=>{
-//           return`
-//           <div>
-//           <img src="${cards.PictureURL}" alt="">
-//         </div>
-//           `
-//       })
-//       .join(` `)
-//       const element = document.querySelector(`.${renderElementId}`);
-//       if(!element) throw new Error(`couldent find element `)
-//       element.innerHTML=htmlCard;
-//   } catch (error) {
-//       console.error(error)
-//   }
-// }
-// renderCards(cards,"back")
 function renderCards(cards, renderElementId) {
     try {
-        if (!cards || !Array.isArray(cards)) {
+        if (!cards || !Array.isArray(cards))
             throw new Error("cards is not an array");
-        }
         var htmlCard = cards
             .map(function (cards) {
-            return "\n            <div class ='front'>\n            <img src=\"" + cards.PictureURL + "\" alt=\"\">\n          </div>\n            ";
+            return "\n            <div>\n            <img src=\"" + cards.PictureURL + "\" alt=\"\">\n          </div>\n            ";
         })
             .join(" ");
         var element = document.querySelector("." + renderElementId);
