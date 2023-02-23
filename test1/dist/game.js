@@ -1,1 +1,0 @@
-renderCards(shuffleArray, "cards");
