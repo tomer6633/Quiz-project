@@ -1,0 +1,66 @@
+body{
+    overflow: hidden;
+    background: repeating-linear-gradient(
+        to bottom,
+        #0f0a1e,
+        #0f0a1e 2px,
+        lighten(#0f0a1e, 3%) 2px,
+        lighten(#0f0a1e, 3%) 4px
+      )
+    
+}
+
+.container{
+    font-family: "Audiowide", sans-serif;
+    font-style: italic;
+    background-color: #000;
+    // background-image: url(../imgs/arcade-background.jpg);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    margin: auto;
+    width: 35rem;
+    height: 99vh;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    letter-spacing: 5px;
+    text-shadow: -2px 0 0 #fdff2a,
+    -4px 0 0 #df4a42,
+    2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
+    
+    &__login{
+        margin-top:2rem ;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        width: 30%;
+        display: flex;
+        justify-content:center;
+
+       
+        
+    }
+
+}
+.star {
+    --size: 20vmin;
+    --holes: calc(var(--size)*.495);
+    width: var(--size);
+    aspect-ratio: 1/1;
+    position: fixed;
+    background: white;  
+    --mask: radial-gradient(var(--holes) at var(--holes) var(--holes), #0000 99%,#000) calc(var(--holes)*-1) calc(var(--holes)*-1);
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    border-radius: 50%;
+    animation: sparkle 1s linear forwards;
+    z-index: 1;
+  }
+  @keyframes sparkle {
+    0% { transform: scale(0); }
+    25% { opacity: 1; }
+    100% { opacity: 0; }
+  }

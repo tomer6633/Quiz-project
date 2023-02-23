@@ -8,6 +8,16 @@ var startButton = document.querySelector(".start");
 var stopButton = document.querySelector(".stop");
 var resumeButton = document.querySelector(".resume");
 var timeDisplay = document.querySelector(".time");
+function addStar() {
+    var s = document.createElement('div');
+    s.className = 'star';
+    s.style.setProperty('--size', Math.random() * 10 + 3 + 'vmin');
+    s.style.left = Math.floor(Math.random() * 100) + '%';
+    s.style.top = Math.floor(Math.random() * 100) + '%';
+    s.onanimationend = function () { this.remove(); };
+    document.body.appendChild(s);
+}
+setInterval(addStar, 200);
 startButton.addEventListener("click", function () {
     if (!intervalId) {
         intervalId = setInterval(function () {
@@ -74,3 +84,18 @@ boxes.forEach(function (box) {
         }
     });
 });
+function ageCalculator() {
+    var userinput = document.getElementById("dob").value;
+    var dob = new Date(userinput);
+    if (userinput == null || userinput == '') {
+        document.getElementById("message").innerHTML = "**Choose a date please!";
+        return false;
+    }
+    else {
+        var month_diff = Date.now() - dob.getTime();
+        var age_dt = new Date(month_diff);
+        var year = age_dt.getUTCFullYear();
+        var age = Math.abs(year - 1970);
+        return console.log("Age is: " + age + " years. ");
+    }
+}

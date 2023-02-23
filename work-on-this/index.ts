@@ -9,6 +9,16 @@ const startButton = document.querySelector(".start") as HTMLButtonElement;
 const stopButton = document.querySelector(".stop") as HTMLButtonElement;
 const resumeButton = document.querySelector(".resume") as HTMLButtonElement;
 const timeDisplay = document.querySelector(".time") as HTMLHeadingElement;
+function addStar() {
+  let s = document.createElement('div')
+  s.className = 'star'
+  s.style.setProperty('--size', Math.random()*10 + 3 + 'vmin')
+  s.style.left = Math.floor(Math.random()*100) + '%'
+  s.style.top = Math.floor(Math.random()*100) + '%'
+  s.onanimationend = function() { this.remove() }
+  document.body.appendChild(s)
+}
+setInterval(addStar,200);
 
 startButton.addEventListener("click", () => {
   if (!intervalId) {
@@ -78,3 +88,21 @@ boxes.forEach(function(box) {
 
     })
 });
+
+
+function ageCalculator() {  
+  let userinput = document.getElementById("dob").value;  
+  let dob = new Date(userinput);  
+  if(userinput==null || userinput=='') {  
+    document.getElementById("message").innerHTML = "**Choose a date please!";    
+    return false;   
+  } else {  
+
+   let month_diff = Date.now() - dob.getTime();  
+
+  let age_dt = new Date(month_diff);       
+  let year = age_dt.getUTCFullYear();  
+  let age = Math.abs(year - 1970);  
+  return console.log (  "Age is: " + age + " years. ");  
+  }  
+}  
