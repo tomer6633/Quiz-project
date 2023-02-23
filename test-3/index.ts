@@ -1,18 +1,41 @@
-// let boxes = document.querySelectorAll(".level1")
 
-function selectLevel(ev){
-    debugger;
-    try {
-        let boxes:any=''
-        const ChosenLevel = ev.target.elements.levels.value;
-        if (ChosenLevel=="level1") boxes = document.querySelectorAll(".level1");
-        if (ChosenLevel=="level2") boxes = document.querySelectorAll(".level2,.level1");
-        if (ChosenLevel=="level3") boxes = document.querySelectorAll(".level3,.level2,.level1");
-      
-    } catch (error) {
-        console.error(error);
+
+
+var boxes:NodeListOf<Element>
+    function hendleLevel(ev){
+        try {
+            ev.preventDefault()
+            var level=ev.target.elements.levels.value
+
+        } catch (error) {
+            console.error(error)
+        }
     }
-}
+
+// let level=prompt("choose a level");
+
+if (level=="level1"){
+    boxes = document.querySelectorAll(".level1");
+    document.querySelectorAll(".level2,.level3").forEach(function(node) {
+    let item=node as HTMLElement
+        item.style.display="none"
+});
+} 
+if (level=="level2"){
+    boxes = document.querySelectorAll(".level1,.level2");
+    document.querySelectorAll(".level3").forEach(function(node) {
+    let item=node as HTMLElement
+        item.style.display="none"
+});
+} 
+if (level=="level3"){
+      boxes = document.querySelectorAll(".level1,.level2,.level3");
+} 
+
+
+
+
+
 
 
 const scoreDisplay:any = document.querySelector('#score');
@@ -22,6 +45,7 @@ let first;
 let second;
 let matchCounter = 0;
 let score = 0;
+
 
 boxes.forEach(function(box) {
     // מסדר את הbox במסך בסדר אקראי לפי מספר 
