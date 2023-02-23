@@ -4,6 +4,11 @@ const boxes = document.querySelectorAll('.box');
 let intervalId;
 let time = 0;
 let lastStopTime = 0;
+const imgDiv = document.querySelector('.container__login--pfp');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uplodeBtn = document.querySelector('#uplodebtn');
+
 
 const startButton = document.querySelector(".start") as HTMLButtonElement;
 const stopButton = document.querySelector(".stop") as HTMLButtonElement;
@@ -19,6 +24,17 @@ function addStar() {
   document.body.appendChild(s)
 }
 setInterval(addStar,200);
+file?.addEventListener ('change', function(){
+  const choosedFile = this.files[0];
+  if(choosedFile){
+    const reader = new FileReader ();
+    reader.addEventListener('load',function(){
+      img?.setAttribute('src', reader.result);
+    });
+    reader.readAsDataURL(choosedFile)
+  }
+})
+
 
 startButton.addEventListener("click", () => {
   if (!intervalId) {
@@ -106,3 +122,4 @@ function ageCalculator() {
   return console.log (  "Age is: " + age + " years. ");  
   }  
 }  
+

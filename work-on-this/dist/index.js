@@ -4,6 +4,10 @@ var boxes = document.querySelectorAll('.box');
 var intervalId;
 var time = 0;
 var lastStopTime = 0;
+var imgDiv = document.querySelector('.container__login--pfp');
+var img = document.querySelector('#photo');
+var file = document.querySelector('#file');
+var uplodeBtn = document.querySelector('#uplodebtn');
 var startButton = document.querySelector(".start");
 var stopButton = document.querySelector(".stop");
 var resumeButton = document.querySelector(".resume");
@@ -18,6 +22,16 @@ function addStar() {
     document.body.appendChild(s);
 }
 setInterval(addStar, 200);
+file === null || file === void 0 ? void 0 : file.addEventListener('change', function () {
+    var choosedFile = this.files[0];
+    if (choosedFile) {
+        var reader_1 = new FileReader();
+        reader_1.addEventListener('load', function () {
+            img === null || img === void 0 ? void 0 : img.setAttribute('src', reader_1.result);
+        });
+        reader_1.readAsDataURL(choosedFile);
+    }
+});
 startButton.addEventListener("click", function () {
     if (!intervalId) {
         intervalId = setInterval(function () {

@@ -10,13 +10,18 @@
 </head>
 <body>
     <div class="container">
-        the ultimate memory game 
+       <p> the ultimate memory game </p>
         <div class="container__login">
             <input type="text" placeholder="enter your name" required>
             <input type="date" name="" id="dob" required>
+            <label for="file" id="uplodebtn">choose an avatar</label>
+            <div class="container__login--pfp">
+                <img src="./imgs/blue.jpeg" alt="" id="photo">
+                <input type="file" id="file">
+            </div>
+            <a href="#" class="pulse" onclick = "ageCalculator()">login</a>
             
-            <button type="submit" onclick = "ageCalculator()"> login </button>
-
+            
         </div>
     </div>
     
