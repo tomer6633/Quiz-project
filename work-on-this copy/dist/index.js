@@ -12,6 +12,7 @@ var startButton = document.querySelector(".start");
 var stopButton = document.querySelector(".stop");
 var resumeButton = document.querySelector(".resume");
 var timeDisplay = document.querySelector(".time");
+scoreDisplay.textContent = "score:";
 function addStar() {
     var s = document.createElement('div');
     s.className = 'star';
@@ -99,7 +100,6 @@ function playGame(boxes) {
             // מסדר את הbox במסך בסדר אקראי לפי מספר 
             var randomNum = Math.floor(Math.random() * 12);
             box.style.order = randomNum;
-            scoreDisplay.textContent = "score:" + score;
             box.addEventListener('click', function Game() {
                 if (!first && !second) {
                     first = box;

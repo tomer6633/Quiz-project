@@ -14,6 +14,9 @@ const startButton = document.querySelector(".start") as HTMLButtonElement;
 const stopButton = document.querySelector(".stop") as HTMLButtonElement;
 const resumeButton = document.querySelector(".resume") as HTMLButtonElement;
 const timeDisplay = document.querySelector(".time") as HTMLHeadingElement;
+scoreDisplay.textContent = "score:";
+
+
 function addStar() {
   let s = document.createElement('div')
   s.className = 'star'
@@ -116,7 +119,6 @@ boxes.forEach(function(box) {
     // מסדר את הbox במסך בסדר אקראי לפי מספר 
     let randomNum = Math.floor(Math.random() * 12);        
     box.style.order = randomNum;
-    scoreDisplay.textContent = "score:" + score;
     box.addEventListener('click', function Game() {
         if (!first && !second) {
             first = box;
