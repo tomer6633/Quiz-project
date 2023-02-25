@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pairs</title>
     <link rel="stylesheet" href="./dist/getin.css">
-    <script src="./dist/index.js" defer></script>
+    <script src="./dist/getin.js" defer></script>
 </head>
 <body>
     <div class="container">
        <p> the ultimate memory game </p>
+       <form action="getin.html" id="form">
         <div class="container__login">
-            <input type="text" placeholder="enter your name" required>
-            <input type="date" name="" id="dob" required>
+            <input type="text" placeholder="enter your name" id="name" name="name" required>
+            <input type="date" name="dob" id="dob" required>
             <label for="file" id="uplodebtn">choose an avatar</label>
-            <div class="container__login--pfp">
+            <div class="container__login--pfp" id="container">
                 <img src="./imgs/blue.jpeg" alt="" id="photo">
-                <input type="file" id="file">
+                <input type="file" id="file" name="file">
             </div>
-            <a href="#" class="pulse" onclick = "ageCalculator()">login</a>
-            
-            
+            <!-- <a href="#"> -->
+                <input type="submit" id="send" onclick = "ageCalculator()">
+            <!-- </a> -->
         </div>
+       </form>
+        
     </div>
     
 </body>

@@ -1,13 +1,12 @@
+
 const scoreDisplay:any = document.querySelector('#score');
 const boxes = document.querySelectorAll('.box');
 //timer and push
 let intervalId;
 let time = 0;
 let lastStopTime = 0;
-const imgDiv = document.querySelector('.container__login--pfp');
-const img = document.querySelector('#photo');
-const file = document.querySelector('#file');
-const uplodeBtn = document.querySelector('#uplodebtn');
+
+
 
 
 const startButton = document.querySelector(".start") as HTMLButtonElement;
@@ -17,26 +16,8 @@ const timeDisplay = document.querySelector(".time") as HTMLHeadingElement;
 scoreDisplay.textContent = "score:";
 
 
-function addStar() {
-  let s = document.createElement('div')
-  s.className = 'star'
-  s.style.setProperty('--size', Math.random()*10 + 3 + 'vmin')
-  s.style.left = Math.floor(Math.random()*100) + '%'
-  s.style.top = Math.floor(Math.random()*100) + '%'
-  s.onanimationend = function() { this.remove() }
-  document.body.appendChild(s)
-}
-setInterval(addStar,200);
-file?.addEventListener ('change', function(){
-  const choosedFile = this.files[0];
-  if(choosedFile){
-    const reader = new FileReader ();
-    reader.addEventListener('load',function(){
-      img?.setAttribute('src', reader.result);
-    });
-    reader.readAsDataURL(choosedFile)
-  }
-})
+
+
 
 
 startButton.addEventListener("click", () => {
@@ -160,23 +141,6 @@ boxes.forEach(function(box) {
 }
 }
 
-
-function ageCalculator() {  
-  let userinput = document.getElementById("dob").value;  
-  let dob = new Date(userinput);  
-  if(userinput==null || userinput=='') {  
-    document.getElementById("message").innerHTML = "**Choose a date please!";    
-    return false;   
-  } else {  
-
-   let month_diff = Date.now() - dob.getTime();  
-
-  let age_dt = new Date(month_diff);       
-  let year = age_dt.getUTCFullYear();  
-  let age = Math.abs(year - 1970);  
-  return console.log (  "Age is: " + age + " years. ");  
-  }  
-}  
 
 
 
