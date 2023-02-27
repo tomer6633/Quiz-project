@@ -27,14 +27,22 @@ form?.addEventListener('submit',(e)=>{
 sendBtn?.addEventListener('click',(e)=>{
   let name =document.getElementById('name');
   let dob = document.getElementById('dob');
-  let pfp = document.getElementById('photo');
+  // let pfp = document.getElementById('photo');
 
   name=name?.value;
   localStorage.setItem('name',name);
   dob = ageCalculator().value;
   localStorage.setItem('dob',dob);
-  pfp=pfp.value;
-  localStorage.setItem('photo',pfp);
+  // file?.addEventListener('change',(ev)=>{
+  //   const image = ev.target.file[0];
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(image);
+  //   reader.addEventListener('load',()=>{
+  //     localStorage.setItem('file',reader.result)
+  //   })
+  // })
+  // pfp=pfp.value;
+  // localStorage.setItem('photo',pfp);
   
 })
 
@@ -45,6 +53,7 @@ file?.addEventListener ('change', function(){
     const reader = new FileReader ();
     reader.addEventListener('load',function(){
       img?.setAttribute('src', reader.result);
+      localStorage.setItem('file',reader.result)
     });
     reader.readAsDataURL(choosedFile)
   }
