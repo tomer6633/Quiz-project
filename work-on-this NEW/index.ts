@@ -56,7 +56,7 @@ function showRelevntLevels(level: string) {
         let item = node as HTMLElement;
         item.style.display = "none";
       });
-      playGame(boxes);
+      playGame(boxes,3);
     }
     if (level == "level2") {
       const boxes = document.querySelectorAll(".level1,.level2");
@@ -65,11 +65,11 @@ function showRelevntLevels(level: string) {
         item.style.display = "none";
       });
 
-      playGame(boxes);
+      playGame(boxes,6);
     }
     if (level == "level3") {
       const boxes = document.querySelectorAll(".level1,.level2,.level3");
-      playGame(boxes);
+      playGame(boxes,10);
     }
   } catch (error) {
     console.error(error);
@@ -87,7 +87,7 @@ let second;
 let matchCounter = 0;
 let score = 0;
 
-function playGame(boxes: NodeListOf<Element>) {
+function playGame(boxes: NodeListOf<Element>,numOfPairs:number) {
   try {
     boxes.forEach(function (box) {
       // מסדר את הbox במסך בסדר אקראי לפי מספר
@@ -112,7 +112,7 @@ function playGame(boxes: NodeListOf<Element>) {
             matchCounter++;
             score += 10;
             scoreDisplay.textContent = "score:" + score;
-            if (matchCounter >= 6)
+            if (matchCounter ===numOfPairs)
               setTimeout(
                 () =>
                   alert(
