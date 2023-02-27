@@ -49,7 +49,7 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_1);
+            playGame(boxes_1, 3);
         }
         if (level == "level2") {
             var boxes_2 = document.querySelectorAll(".level1,.level2");
@@ -57,11 +57,11 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_2);
+            playGame(boxes_2, 6);
         }
         if (level == "level3") {
             var boxes_3 = document.querySelectorAll(".level1,.level2,.level3");
-            playGame(boxes_3);
+            playGame(boxes_3, 10);
         }
     }
     catch (error) {
@@ -73,7 +73,7 @@ var first;
 var second;
 var matchCounter = 0;
 var score = 0;
-function playGame(boxes) {
+function playGame(boxes, numOfPairs) {
     try {
         boxes.forEach(function (box) {
             // מסדר את הbox במסך בסדר אקראי לפי מספר
@@ -99,10 +99,8 @@ function playGame(boxes) {
                         matchCounter++;
                         score += 10;
                         scoreDisplay.textContent = "score:" + score;
-                        if (matchCounter >= 6)
-                            setTimeout(function () {
-                                return alert("Game done! Your score is " + score + " Refresh page to replay.");
-                            }, 2000);
+                        if (matchCounter === numOfPairs)
+                            setTimeout(function () { return alert("Game done! Your score is " + score + " Refresh page to replay."); }, 2000);
                     }
                     else {
                         first.classList.add("hide");
