@@ -24,12 +24,14 @@ body {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-self: center;
 }
 .container__login input {
   margin-bottom: 3rem;
+  width: 10rem;
 }
 .container__login--pfp {
   width: 150%;
@@ -51,12 +53,11 @@ body {
   height: 5rem;
   width: 5rem;
   border-radius: 20rem;
+  margin-left: 5rem;
 }
 .container__login label {
   margin-bottom: 1rem;
   width: max-content;
-  position: relative;
-  right: 5rem;
 }
 .container__login a {
   display: flex;
