@@ -1,5 +1,5 @@
-var scoreDisplay = document.querySelector('#score');
-var boxes = document.querySelectorAll('.box');
+var scoreDisplay = document.querySelector("#score");
+var boxes = document.querySelectorAll(".box");
 //timer and push
 var intervalId;
 var time = 0;
@@ -9,14 +9,16 @@ var stopButton = document.querySelector(".stop");
 var resumeButton = document.querySelector(".resume");
 var timeDisplay = document.querySelector(".time");
 scoreDisplay.textContent = "score:";
-startButton.addEventListener("click", function () {
+startButton.addEventListener("click", startGame);
+function startGame() {
+    hasGameStarted = true;
     if (!intervalId) {
         intervalId = setInterval(function () {
             time += 1;
             timeDisplay.textContent = time.toString();
         }, 1000);
     }
-});
+}
 stopButton.addEventListener("click", function () {
     lastStopTime = time;
     clearInterval(intervalId);
@@ -66,6 +68,7 @@ function showRelevntLevels(level) {
         console.error(error);
     }
 }
+var hasGameStarted = false;
 var first;
 var second;
 var matchCounter = 0;
@@ -73,17 +76,21 @@ var score = 0;
 function playGame(boxes) {
     try {
         boxes.forEach(function (box) {
-            // מסדר את הbox במסך בסדר אקראי לפי מספר 
+            // מסדר את הbox במסך בסדר אקראי לפי מספר
             var randomNum = Math.floor(Math.random() * 12);
             box.style.order = randomNum;
-            box.addEventListener('click', function Game() {
+            box.addEventListener("click", function Game() {
+                if (!hasGameStarted) {
+                    startGame();
+                    hasGameStarted = true;
+                }
                 if (!first && !second) {
                     first = box;
-                    box.classList.add('show');
+                    box.classList.add("show");
                 }
                 else if (first && !second) {
                     second = box;
-                    box.classList.add('show');
+                    box.classList.add("show");
                     if (first.innerHTML === second.innerHTML) {
                         // first.style.pointerEvents = 'none';
                         // second.style.pointerEvents = 'none';
@@ -93,16 +100,18 @@ function playGame(boxes) {
                         score += 10;
                         scoreDisplay.textContent = "score:" + score;
                         if (matchCounter >= 6)
-                            setTimeout(function () { return alert("Game done! Your score is " + score + " Refresh page to replay."); }, 2000);
+                            setTimeout(function () {
+                                return alert("Game done! Your score is " + score + " Refresh page to replay.");
+                            }, 2000);
                     }
                     else {
-                        first.classList.add('hide');
-                        second.classList.add('hide');
+                        first.classList.add("hide");
+                        second.classList.add("hide");
                         setTimeout(function () {
-                            first.classList.remove('show');
-                            second.classList.remove('show');
-                            first.classList.remove('hide');
-                            second.classList.remove('hide');
+                            first.classList.remove("show");
+                            second.classList.remove("show");
+                            first.classList.remove("hide");
+                            second.classList.remove("hide");
                             first = null;
                             second = null;
                             score -= 2;
