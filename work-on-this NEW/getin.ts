@@ -24,6 +24,7 @@ function ageCalculator() {
 form?.addEventListener('submit',(e)=>{
   e.preventDefault
 });
+
 sendBtn?.addEventListener('click',(e)=>{
   let name =document.getElementById('name');
   let dob = document.getElementById('dob');
