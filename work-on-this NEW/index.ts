@@ -33,6 +33,7 @@ resumeButton.addEventListener("click", () => {
   intervalId = undefined;
   time = 0;
   timeDisplay.textContent = "00:00";
+  window.location.reload()
 });
 
 function hendleLevel(ev) {

@@ -29,6 +29,7 @@ resumeButton.addEventListener("click", function () {
     intervalId = undefined;
     time = 0;
     timeDisplay.textContent = "00:00";
+    window.location.reload();
 });
 function hendleLevel(ev) {
     try {
@@ -49,7 +50,7 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_1, 3);
+            playGame(boxes_1);
         }
         if (level == "level2") {
             var boxes_2 = document.querySelectorAll(".level1,.level2");
@@ -57,11 +58,11 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_2, 6);
+            playGame(boxes_2);
         }
         if (level == "level3") {
             var boxes_3 = document.querySelectorAll(".level1,.level2,.level3");
-            playGame(boxes_3, 10);
+            playGame(boxes_3);
         }
     }
     catch (error) {
@@ -73,7 +74,7 @@ var first;
 var second;
 var matchCounter = 0;
 var score = 0;
-function playGame(boxes, numOfPairs) {
+function playGame(boxes) {
     try {
         boxes.forEach(function (box) {
             // מסדר את הbox במסך בסדר אקראי לפי מספר
@@ -99,8 +100,10 @@ function playGame(boxes, numOfPairs) {
                         matchCounter++;
                         score += 10;
                         scoreDisplay.textContent = "score:" + score;
-                        if (matchCounter === numOfPairs)
-                            setTimeout(function () { return alert("Game done! Your score is " + score + " Refresh page to replay."); }, 2000);
+                        if (matchCounter >= 6)
+                            setTimeout(function () {
+                                return alert("Game done! Your score is " + score + " Refresh page to replay.");
+                            }, 2000);
                     }
                     else {
                         first.classList.add("hide");
