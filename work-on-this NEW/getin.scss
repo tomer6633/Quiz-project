@@ -34,16 +34,27 @@ body{
     2px 0 0 #91fcfe,
     4px 0 0 #4405fc;
     
-    
+    form{
+      // margin-top:2rem ;
+      //   display: flex;
+      //   flex-direction: column;
+      //   width: 50%;
+      //   display: flex;
+      //   justify-content:center;
+      //   outline: 1px solid white;
+    }
     &__login{
         margin-top:2rem ;
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 100%;
         display: flex;
-        justify-content:center;
+        align-items: center;
+        justify-self: center;
+        // outline: 1px solid white;
         input{
           margin-bottom: 3rem;
+          width: 10rem;
         }
        &--pfp{
         // outline: 1px solid wite;
@@ -63,11 +74,13 @@ body{
          position: relative;
          left: 5rem;
          
+         
         }
         img{
           height: 5rem;
           width: 5rem;
           border-radius: 20rem;
+          margin-left: 5rem;
         }
 
        }
@@ -75,8 +88,7 @@ body{
         margin-bottom: 1rem;
         // outline: 1px solid #d79999;
         width:max-content;
-        position: relative;
-        right: 5rem;
+        
         
       }
       a{
