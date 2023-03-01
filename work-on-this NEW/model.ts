@@ -3,8 +3,8 @@ class Player {
     constructor(
       public name: string,
       public date: Date,
-      public picture:string,
-      public score:number,
+      public file:string,
+      public score?:number,
     ) {
       this.uid = uid();
     }

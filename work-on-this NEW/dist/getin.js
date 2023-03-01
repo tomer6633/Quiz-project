@@ -25,21 +25,20 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', func
 sendBtn === null || sendBtn === void 0 ? void 0 : sendBtn.addEventListener('click', function (e) {
     var name = document.getElementById('name');
     var dob = document.getElementById('dob');
-    // let pfp = document.getElementById('photo');
     name = name === null || name === void 0 ? void 0 : name.value;
-    localStorage.setItem('name', name);
-    dob = ageCalculator().value;
-    localStorage.setItem('dob', dob);
-    // file?.addEventListener('change',(ev)=>{
-    //   const image = ev.target.file[0];
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(image);
-    //   reader.addEventListener('load',()=>{
-    //     localStorage.setItem('file',reader.result)
-    //   })
-    // })
-    // pfp=pfp.value;
-    // localStorage.setItem('photo',pfp);
+    // localStorage.setItem('name',name);
+    dob = dob.value;
+    // localStorage.setItem('dob',dob);
+    var file = localStorage.getItem('file');
+    file === null || file === void 0 ? void 0 : file.addEventListener('change', function (ev) {
+        var image = ev.target.file[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(image);
+        reader.addEventListener('load', function () {
+            localStorage.setItem('file', reader.result);
+        });
+    });
+    localStorage.setItem('photo', pfp);
 });
 file === null || file === void 0 ? void 0 : file.addEventListener('change', function () {
     var choosedFile = this.files[0];
@@ -47,7 +46,7 @@ file === null || file === void 0 ? void 0 : file.addEventListener('change', func
         var reader_1 = new FileReader();
         reader_1.addEventListener('load', function () {
             img === null || img === void 0 ? void 0 : img.setAttribute('src', reader_1.result);
-            localStorage.setItem('file', reader_1.result);
+            // localStorage.setItem('file',reader.result)
         });
         reader_1.readAsDataURL(choosedFile);
     }
