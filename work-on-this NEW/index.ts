@@ -117,7 +117,7 @@ function playGame(boxes: NodeListOf<Element>,numOfPairs:number) {
               setTimeout(
                 () =>
                   winner?.style.display = "block",
-                  winner?.innerHTML=`congratulations ! you're won the ultimate memory game <br> your score is ${score} <br> <a href="scoreBoard.html">score borad</a>`
+                  winner?.innerHTML=`congratulations ! you're won the ultimate memory game <br> your score is ${score} <br> <a href="scoreBoard.html" id="scoreBtn">score borad</a>`
                   
                 ,
                 2000

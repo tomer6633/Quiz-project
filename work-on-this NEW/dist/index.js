@@ -104,7 +104,7 @@ function playGame(boxes, numOfPairs) {
                         if (matchCounter === numOfPairs)
                             setTimeout(function () {
                                 return winner === null || winner === void 0 ? void 0 : winner.style.display = "block";
-                            }, winner === null || winner === void 0 ? void 0 : winner.innerHTML = "congratulations ! you're won the ultimate memory game <br> your score is " + score + " <br> <a href=\"scoreBoard.html\">score borad</a>", 2000);
+                            }, winner === null || winner === void 0 ? void 0 : winner.innerHTML = "congratulations ! you're won the ultimate memory game <br> your score is " + score + " <br> <a href=\"scoreBoard.html\" id=\"scoreBtn\">score borad</a>", 2000);
                     }
                     else {
                         first.classList.add("hide");
