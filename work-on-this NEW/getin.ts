@@ -21,6 +21,7 @@ function ageCalculator() {
     return console.log (  "Age is: " + age + " years. ");  
     }  
   }  
+  
 form?.addEventListener('submit',(e)=>{
   e.preventDefault
 });
@@ -30,16 +31,18 @@ sendBtn?.addEventListener('click',(e)=>{
   let dob = document.getElementById('dob');
 
 debugger;
-const test= e.target.elements.name.value;
+const test= e.target.elements.value;
 console.log(test)
   name=name?.value;
   // localStorage.setItem('name',name);
   dob = dob?.value;
   // localStorage.setItem('dob',dob);
   const fileArrey= localStorage.getItem('file')
+  
   if (name && dob && fileArrey)
   players.push(new Player(fileArrey,dob,file))
   localStorage.setItem('players', JSON.stringify(players));
+  
   // localStorage.setItem('photo',pfp);
  
   file?.addEventListener('change',(ev)=>{
@@ -51,8 +54,6 @@ console.log(test)
     })
   })
 })
-
-
 
 
 
@@ -69,6 +70,9 @@ file?.addEventListener ('change', function(){
     reader.readAsDataURL(choosedFile)
   }
 })
+
+
+
 
 function addStar() {
     let s = document.createElement('div')
