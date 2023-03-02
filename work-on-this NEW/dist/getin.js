@@ -1,69 +1,75 @@
-let sendBtn = document.getElementById('send');
-let form = document.getElementById('form');
-const imgDiv = document.querySelector('#container');
-const img = document.querySelector('#photo');
-const file = document.querySelector('#file');
-const uplodeBtn = document.querySelector('#uplodebtn');
+var sendBtn = document.getElementById("send");
+var form = document.getElementById("form");
+var imgDiv = document.querySelector("#container");
+var img = document.querySelector("#photo");
+var file = document.querySelector("#file");
+var uplodeBtn = document.querySelector("#uplodebtn");
 function ageCalculator() {
-    let userinput = document.getElementById("dob").value;
-    let dob = new Date(userinput);
-    if (userinput == null || userinput == '') {
+    var userinput = document.getElementById("dob").value;
+    var dob = new Date(userinput);
+    if (userinput == null || userinput == "") {
         document.getElementById("message").innerHTML = "**Choose a date please!";
         return false;
     }
     else {
-        let month_diff = Date.now() - dob.getTime();
-        let age_dt = new Date(month_diff);
-        let year = age_dt.getUTCFullYear();
-        let age = Math.abs(year - 1970);
+        var month_diff = Date.now() - dob.getTime();
+        var age_dt = new Date(month_diff);
+        var year = age_dt.getUTCFullYear();
+        var age = Math.abs(year - 1970);
         return console.log("Age is: " + age + " years. ");
     }
 }
-form?.addEventListener('submit', (e) => {
+form === null || form === void 0 ? void 0 : form.addEventListener("submit", function (e) {
     e.preventDefault;
 });
-sendBtn?.addEventListener('click', (e) => {
-    let name = document.getElementById('name');
-    let dob = document.getElementById('dob');
+sendBtn === null || sendBtn === void 0 ? void 0 : sendBtn.addEventListener("click", function (e) {
+    var nameElement = document.getElementById("name");
+    var DateOfBirthElement = document.getElementById("dob");
     debugger;
-    const test = e.target.elements.name.value;
-    console.log(test);
-    name = name?.value;
+    if (!nameElement)
+        throw new Error("could'nt find the name element");
+    var name = nameElement.value.toString();
     // localStorage.setItem('name',name);
-    dob = dob?.value;
+    if (!DateOfBirthElement)
+        throw new Error("couldnt find date of birth element");
+    var dateOfBirth = new Date(DateOfBirthElement.value);
+    if (!dateOfBirth)
+        throw new Error("couldnt find the date");
     // localStorage.setItem('dob',dob);
-    const fileArrey = localStorage.getItem('file');
-    if (name && dob && fileArrey)
-        players.push(new Player(fileArrey, dob, file));
-    localStorage.setItem('players', JSON.stringify(players));
+    var fileArrey = localStorage.getItem("file");
+    if (name && dateOfBirth && fileArrey)
+        players.push(new Player(name, dateOfBirth, fileArrey));
+    localStorage.setItem("players", JSON.stringify(players));
     // localStorage.setItem('photo',pfp);
-    file?.addEventListener('change', (ev) => {
-        const image = ev.target.file[0];
-        const reader = new FileReader();
+    file === null || file === void 0 ? void 0 : file.addEventListener("change", function (ev) {
+        var image = ev.target.file[0];
+        var reader = new FileReader();
         reader.readAsDataURL(image);
-        reader.addEventListener('load', () => {
+        reader.addEventListener("load", function () {
             // localStorage.setItem('file',reader.result)
         });
     });
 });
-file?.addEventListener('change', function () {
-    const choosedFile = this.files[0];
+file === null || file === void 0 ? void 0 : file.addEventListener("change", function () {
+    var choosedFile = this.files[0];
     if (choosedFile) {
-        const reader = new FileReader();
-        reader.addEventListener('load', function () {
-            img?.setAttribute('src', reader.result);
-            localStorage.setItem('file', reader.result);
+        var reader_1 = new FileReader();
+        reader_1.addEventListener("load", function () {
+            img === null || img === void 0 ? void 0 : img.setAttribute("src", reader_1.result);
+            localStorage.setItem("file", reader_1.result);
         });
-        reader.readAsDataURL(choosedFile);
+        reader_1.readAsDataURL(choosedFile);
     }
 });
 function addStar() {
-    let s = document.createElement('div');
-    s.className = 'star';
-    s.style.setProperty('--size', Math.random() * 10 + 3 + 'vmin');
-    s.style.left = Math.floor(Math.random() * 100) + '%';
-    s.style.top = Math.floor(Math.random() * 100) + '%';
-    s.onanimationend = function () { this.remove(); };
+    var s = document.createElement("div");
+    s.className = "star";
+    s.style.setProperty("--size", Math.random() * 10 + 3 + "vmin");
+    s.style.left = Math.floor(Math.random() * 100) + "%";
+    s.style.top = Math.floor(Math.random() * 100) + "%";
+    s.onanimationend = function () {
+        this.remove();
+    };
     document.body.appendChild(s);
 }
 setInterval(addStar, 200);
