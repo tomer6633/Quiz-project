@@ -216,3 +216,18 @@ main {
   right: -20px;
   transform: rotate(-45deg);
 }
+
+.winnerMas {
+  background-color: #c44343;
+  height: 15rem;
+  width: 25rem;
+  position: absolute;
+  top: 25rem;
+  right: 35rem;
+  z-index: 5;
+  display: none;
+}
+.winnerMas a {
+  background-color: #67c1ac;
+  border-radius: 25rem;
+}

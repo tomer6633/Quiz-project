@@ -230,3 +230,21 @@ main {
       }
     }
   }
+.winnerMas{
+  background-color: #c44343;
+  height: 15rem;
+  width: 25rem;
+  position: absolute;
+  top: 25rem;
+  right: 35rem;
+  z-index: 5;
+  display: none;
+  // animation-name: popup;
+  // animation-duration: 250ms;
+  // animation-fill-mode: forwards;
+    a{
+      background-color: #67c1ac;
+      border-radius: 25rem;
+      
+    }
+}
