@@ -1,105 +1,127 @@
 body {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-  }
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-image: url("https://img.freepik.com/premium-photo/80-s-retro-grid-mountain-background-80s-retro-art-scene_83608-85.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: cover;
   
-  .timer {
+}
+
+
+.timer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .time {
-    font-size: 48px;
-    margin-bottom: 16px;
-  }
-  
-  button {
-    font-size: 24px;
-    padding: 8px 16px;
-    margin: 8px;
-  }
-  
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 600px;
-    display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    margin-left: 50vh;
-    margin-top: 25vh;
-  }
-  .box {
-    width: 10vw;
-    height: 12.5vh;
+    align-items: center;
+    color: #fff;
+}
+.time {
+  font-size: 48px;
+  // margin-bottom: 16px;
+}
+
+
+button{
+  font-size: 24px;
+  padding: 10px 20px;
+  margin: 8px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
+}
+
+.box {
+  width: 10vw;
+  height: 12.5vh;
+  background-color: darkblue;
+  color: transparent;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: flex;
+  font-size: xx-large;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.box img {
+  width: 10vw;
+  height: 12.5vh;
+  opacity: 1;
+}
+
+.show {
+  animation: show 2s forwards;
+  transform: rotateY(180deg);
+}
+
+@keyframes show {
+  0% {
     background-color: darkblue;
     color: transparent;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    display: flex;
-    font-size: xx-large;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    cursor: pointer;
-  }
-  .box img {
-    width: 10vw;
-    height: 12.5vh;
     opacity: 1;
   }
-  .show {
-    animation: show 2s forwards;
-    transform: rotateY(180deg);
+  20% {
+    opacity: 0.5;
   }
-  @keyframes show {
-    0% {
-      background-color: darkblue;
-      color: transparent;
-      opacity: 1;
-    }
-    20% {
-      opacity: 0.5;
-    }
-    100% {
-      background-color: red;
-      color: black;
-      opacity: 1;
-    }
+  100% {
+    background-color: red;
+    color: black;
+    opacity: 1;
   }
-  .hide {
-    animation: hide 2s forwards;
-    transform: rotateY(180deg);
+}
+
+.hide {
+  animation: hide 2s forwards;
+  transform: rotateY(180deg);
+}
+
+@keyframes hide {
+  0% {
+    background-color: red;
+    color: black;
+    opacity: 1;
   }
-  @keyframes hide {
-    0% {
-      background-color: red;
-      color: black;
-      opacity: 1;
-    }
-    80% {
-      opacity: 0.5;
-    }
-    100% {
-      background-color: darkblue;
-      color: transparent;
-      opacity: 0;
-    }
+  80% {
+    opacity: 0.5;
   }
-  #score {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    font-size: 24px;
-    font-weight: bold;
+  100% {
+    background-color: darkblue;
+    color: transparent;
+    opacity: 0;
   }
+}
+
+#score {
+  position: relative;
+  display: inline-block;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 30, 255);
+  color: white;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
   .level1 {
     img {
@@ -165,4 +187,46 @@ body {
     justify-content: center;
     border: 1px solid black;
     cursor: pointer;
+  }
+
+
+
+  .nameOfGame {
+    text-align: center;
+  
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      background-color: #000;
+      border-radius: 5px;
+      text-shadow: 2px 2px #666;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      position: relative;
+  
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        top: -10px;
+        z-index: -1;
+      }
+  
+      &:before {
+        left: -20px;
+        transform: rotate(45deg);
+      }
+  
+      &:after {
+        right: -20px;
+        transform: rotate(-45deg);
+      }
+    }
   }
