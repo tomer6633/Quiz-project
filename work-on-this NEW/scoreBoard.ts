@@ -2,7 +2,7 @@ function renderScoreBoard(players:Player[]){
     try {
         if (!players || !Array.isArray(players)) throw new Error("players is not an array");
       
-        debugger;
+
         const page=players.map((player) => {
                 return `<div class="line" >
                 <img class="small_logo" src='${player.picture}'/>

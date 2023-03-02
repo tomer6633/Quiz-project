@@ -29,36 +29,42 @@ sendBtn?.addEventListener('click',(e)=>{
   let name =document.getElementById('name');
   let dob = document.getElementById('dob');
 
-
+debugger;
+const test= e.target.elements.name.value;
+console.log(test)
   name=name?.value;
   // localStorage.setItem('name',name);
-  dob = dob.value;
+  dob = dob?.value;
   // localStorage.setItem('dob',dob);
-  const file= localStorage.getItem('file')
-
-
-
+  const fileArrey= localStorage.getItem('file')
+  if (name && dob && fileArrey)
+  players.push(new Player(fileArrey,dob,file))
+  localStorage.setItem('players', JSON.stringify(players));
+  // localStorage.setItem('photo',pfp);
+ 
   file?.addEventListener('change',(ev)=>{
     const image = ev.target.file[0];
     const reader = new FileReader();
     reader.readAsDataURL(image);
     reader.addEventListener('load',()=>{
-      localStorage.setItem('file',reader.result)
+      // localStorage.setItem('file',reader.result)
     })
   })
-
-  localStorage.setItem('photo',pfp);
-  
 })
 
 
+
+
+
+
 file?.addEventListener ('change', function(){
+
   const choosedFile = this.files[0];
   if(choosedFile){
     const reader = new FileReader ();
     reader.addEventListener('load',function(){
       img?.setAttribute('src', reader.result);
-      // localStorage.setItem('file',reader.result)
+      localStorage.setItem('file',reader.result)
     });
     reader.readAsDataURL(choosedFile)
   }
