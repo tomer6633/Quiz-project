@@ -1,5 +1,6 @@
 const scoreDisplay: any = document.querySelector("#score");
 const boxes = document.querySelectorAll(".box");
+let winner = document.querySelector("#winnerMas")
 //timer and push
 let intervalId;
 let time = 0;
@@ -115,9 +116,10 @@ function playGame(boxes: NodeListOf<Element>,numOfPairs:number) {
             if (matchCounter ===numOfPairs)
               setTimeout(
                 () =>
-                  alert(
-                    `Game done! Your score is ${score} Refresh page to replay.`
-                  ),
+                  winner?.style.display = "block",
+                  winner?.innerHTML=`congratulations ! you're won the ultimate memory game <br> your score is ${score} <br> <a href="scoreBoard.html" id="scoreBtn">score borad</a>`
+                  
+                ,
                 2000
               );
           } else {
