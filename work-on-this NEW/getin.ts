@@ -26,7 +26,7 @@ form?.addEventListener("submit", (e) => {
 });
 
 sendBtn?.addEventListener("click", (e) => {
-  const nameElement = document.getElementById("name");
+  const nameElement:any = document.getElementById("name");
   const DateOfBirthElement:any = document.getElementById("dob");
 
   debugger;
