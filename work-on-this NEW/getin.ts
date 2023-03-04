@@ -29,7 +29,7 @@ sendBtn?.addEventListener("click", (e) => {
   const nameElement:any = document.getElementById("name");
   const DateOfBirthElement:any = document.getElementById("dob");
 
-  debugger;
+
 
   if (!nameElement) throw new Error ("could'nt find the name element")
   const name:string = nameElement.value.toString();
@@ -41,10 +41,13 @@ sendBtn?.addEventListener("click", (e) => {
   const dateOfBirth: Date = new Date(DateOfBirthElement.value);
   if(!dateOfBirth) throw new Error("couldnt find the date");
   // localStorage.setItem('dob',dob);
+  
   const fileArrey = localStorage.getItem("file");
-
-  if (name && dateOfBirth && fileArrey) players.push(new Player(name, dateOfBirth, fileArrey));
-  localStorage.setItem("players", JSON.stringify(players));
+  if(!fileArrey) throw new Error("couldnt find the date");
+  const file= fileArrey;
+  const PlayersFromStorage:Player[]=getPlayersFromStorage()
+  PlayersFromStorage.push(new Player(name, dateOfBirth, file));
+  localStorage.setItem("players", JSON.stringify(PlayersFromStorage));
 
   // localStorage.setItem('photo',pfp);
 
@@ -82,3 +85,22 @@ function addStar() {
   document.body.appendChild(s);
 }
 setInterval(addStar, 200);
+
+
+function renderusers(players: Player[]) {
+try {
+  let page = "";
+  for (let j = 0; j <= players.length - 1; j++) {
+    page += `<div class="recurring_user">
+           <a href="./inex.html" onclick="beginGame('${players[j].uid}')" > <img class="userImg" src='${players[j].file}'/></a>
+             <button onclick="handleDeleteUser('${players[j].uid}')">Remove</button>  
+            </div> `;
+  }
+  const html: HTMLDivElement | null = document.querySelector("#listofUsers");
+  if (html !== null) 
+      html.innerHTML = page;
+}
+ catch (error) {
+  console.error(Error)
+}
+}

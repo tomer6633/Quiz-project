@@ -148,3 +148,18 @@ p:after {
     opacity: 0;
   }
 }
+#recurring_user {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+#listofUsers {
+  display: flex;
+  flex-direction: row;
+}
+
+.userImg {
+  height: 50px;
+  width: 50px;
+}

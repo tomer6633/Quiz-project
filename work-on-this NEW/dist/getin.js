@@ -25,7 +25,6 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", func
 sendBtn === null || sendBtn === void 0 ? void 0 : sendBtn.addEventListener("click", function (e) {
     var nameElement = document.getElementById("name");
     var DateOfBirthElement = document.getElementById("dob");
-    debugger;
     if (!nameElement)
         throw new Error("could'nt find the name element");
     var name = nameElement.value.toString();
@@ -37,9 +36,12 @@ sendBtn === null || sendBtn === void 0 ? void 0 : sendBtn.addEventListener("clic
         throw new Error("couldnt find the date");
     // localStorage.setItem('dob',dob);
     var fileArrey = localStorage.getItem("file");
-    if (name && dateOfBirth && fileArrey)
-        players.push(new Player(name, dateOfBirth, fileArrey));
-    localStorage.setItem("players", JSON.stringify(players));
+    if (!fileArrey)
+        throw new Error("couldnt find the date");
+    var file = fileArrey;
+    var PlayersFromStorage = getPlayersFromStorage();
+    PlayersFromStorage.push(new Player(name, dateOfBirth, file));
+    localStorage.setItem("players", JSON.stringify(PlayersFromStorage));
     // localStorage.setItem('photo',pfp);
     file === null || file === void 0 ? void 0 : file.addEventListener("change", function (ev) {
         var image = ev.target.file[0];
@@ -73,3 +75,17 @@ function addStar() {
     document.body.appendChild(s);
 }
 setInterval(addStar, 200);
+function renderusers(players) {
+    try {
+        var page = "";
+        for (var j = 0; j <= players.length - 1; j++) {
+            page += "<div class=\"recurring_user\">\n           <a href=\"./inex.html\" onclick=\"beginGame('" + players[j].uid + "')\" > <img class=\"userImg\" src='" + players[j].file + "'/></a>\n             <button onclick=\"handleDeleteUser('" + players[j].uid + "')\">Remove</button>  \n            </div> ";
+        }
+        var html = document.querySelector("#listofUsers");
+        if (html !== null)
+            html.innerHTML = page;
+    }
+    catch (error) {
+        console.error(Error);
+    }
+}

@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="./dist/getin.css">
     <script src="./dist/getin.js" defer></script>
 </head>
-<body>
+<body onload="renderusers(getPlayersFromStorage())">
+    
     <div class="container">
        <p> the ultimate memory game </p>
+       <div id="listofUsers"></div>
        <form action="getin.html" id="form">
         <div class="container__login">
             <input type="text" placeholder="enter your name" id="name" name="name" required>

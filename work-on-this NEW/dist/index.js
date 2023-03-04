@@ -32,18 +32,23 @@ resumeButton.addEventListener("click", function () {
     timeDisplay.textContent = "00:00";
     window.location.reload();
 });
-function hendleLevel(ev) {
+//start game//
+function beginGame(uid) {
+    hendleLevel(ev, uid);
+}
+function hendleLevel(ev, uid) {
     try {
+        debugger;
         ev.preventDefault();
         var level = ev.target.elements.levels.value;
-        showRelevntLevels(level);
+        showRelevntLevels(level, uid);
     }
     catch (error) {
         console.error(error);
     }
 }
 // let level=prompt("choose a level");
-function showRelevntLevels(level) {
+function showRelevntLevels(level, uid) {
     try {
         if (level == "level1") {
             var boxes_1 = document.querySelectorAll(".level1");
@@ -51,7 +56,7 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_1, 3);
+            playGame(boxes_1, 3, uid);
         }
         if (level == "level2") {
             var boxes_2 = document.querySelectorAll(".level1,.level2");
@@ -59,11 +64,11 @@ function showRelevntLevels(level) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_2, 6);
+            playGame(boxes_2, 6, uid);
         }
         if (level == "level3") {
             var boxes_3 = document.querySelectorAll(".level1,.level2,.level3");
-            playGame(boxes_3, 10);
+            playGame(boxes_3, 10, uid);
         }
     }
     catch (error) {
@@ -75,7 +80,7 @@ var first;
 var second;
 var matchCounter = 0;
 var score = 0;
-function playGame(boxes, numOfPairs) {
+function playGame(boxes, numOfPairs, uid) {
     try {
         boxes.forEach(function (box) {
             // מסדר את הbox במסך בסדר אקראי לפי מספר

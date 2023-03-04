@@ -1,15 +1,12 @@
+renderScoreBoard(getPlayersFromStorage());
 function renderScoreBoard(players) {
     try {
         if (!players || !Array.isArray(players))
             throw new Error("players is not an array");
-        const page = players.map((player) => {
-            return `<div class="line" >
-                <img class="small_logo" src='${player.picture}'/>
-                <div>${player.name} </div>
-                <div>${player.score} </div>
-                </div>`;
+        var page = players.map(function (player) {
+            return "<div class=\"line\" >\n                <img class=\"small_logo\" src='" + player.file + "'/>\n                <div>" + player.name + " </div>\n                <div>" + player.score + " </div>\n                </div>";
         }).join(" ");
-        const html = document.querySelector(".scoreBoard");
+        var html = document.querySelector(".scoreBoard");
         if (html !== null) {
             html.innerHTML = page;
         }
@@ -18,4 +15,17 @@ function renderScoreBoard(players) {
         console.error(error);
     }
 }
-renderScoreBoard(players);
+function getPlayersFromStorage() {
+    try {
+        var emptyPlayers = [];
+        var playersString = localStorage.getItem("players");
+        if (!playersString)
+            return emptyPlayers;
+        var players = JSON.parse(playersString);
+        return (players);
+    }
+    catch (error) {
+        console.error(error);
+        return (undefined);
+    }
+}
