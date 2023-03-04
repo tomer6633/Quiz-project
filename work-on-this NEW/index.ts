@@ -39,22 +39,23 @@ resumeButton.addEventListener("click", () => {
 
 //start game//
 function beginGame(uid:string){
-  hendleLevel(ev,uid)
+  localStorage.setItem("uid", uid.toString())
 }
 
-function hendleLevel(ev,uid:string) {
+function hendleLevel(ev) {
   try {
-    debugger;
+
     ev.preventDefault();
     const level = ev.target.elements.levels.value;
-    showRelevntLevels(level,uid);
+
+    showRelevntLevels(level);
   } catch (error) {
     console.error(error);
   }
 }
 
 // let level=prompt("choose a level");
-function showRelevntLevels(level: string,uid:string) {
+function showRelevntLevels(level: string) {
   try {
     if (level == "level1") {
       const boxes: NodeListOf<Element> = document.querySelectorAll(".level1");
@@ -63,6 +64,8 @@ function showRelevntLevels(level: string,uid:string) {
         let item = node as HTMLElement;
         item.style.display = "none";
       });
+      const uid=getUIDFromStorage()
+      if(uid)
       playGame(boxes,3,uid);
     }
     if (level == "level2") {
@@ -71,11 +74,14 @@ function showRelevntLevels(level: string,uid:string) {
         let item = node as HTMLElement;
         item.style.display = "none";
       });
-
+      const uid=getUIDFromStorage()
+      if(uid)
       playGame(boxes,6,uid);
     }
     if (level == "level3") {
       const boxes = document.querySelectorAll(".level1,.level2,.level3");
+      const uid=getUIDFromStorage()
+      if(uid)
       playGame(boxes,10,uid);
     }
   } catch (error) {
@@ -119,15 +125,20 @@ function playGame(boxes: NodeListOf<Element>,numOfPairs:number,uid:string) {
             matchCounter++;
             score += 10;
             scoreDisplay.textContent = "score:" + score;
-            if (matchCounter ===numOfPairs)
-              setTimeout(
-                () =>
+            if (matchCounter ===numOfPairs){
+              setTimeout(() =>
                   winner?.style.display = "block",
-                  winner?.innerHTML=`congratulations ! you're won the ultimate memory game <br> your score is ${score} <br> <a href="scoreBoard.html" id="scoreBtn">score borad</a>`
-                  
-                ,
-                2000
-              );
+                  winner?.innerHTML=`congratulations ! you're won the ultimate memory game <br> your score is ${score} <br> <a href="scoreBoard.html" id="scoreBtn">score borad</a>`,2000);
+                  // update score to Players
+                  debugger;
+                  const players=getPlayersFromStorage()
+                  for (let i=0;i<=players.length-1;i++){
+                      if (players[i].uid===uid){ 
+                        players[i].score=score
+                        localStorage.setItem("players", JSON.stringify(players))
+                      }
+                  }}
+
           } else {
             first.classList.add("hide");
             second.classList.add("hide");

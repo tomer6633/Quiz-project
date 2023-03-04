@@ -92,9 +92,10 @@ try {
   let page = "";
   for (let j = 0; j <= players.length - 1; j++) {
     page += `<div class="recurring_user">
-           <a href="./inex.html" onclick="beginGame('${players[j].uid}')" > <img class="userImg" src='${players[j].file}'/></a>
-             <button onclick="handleDeleteUser('${players[j].uid}')">Remove</button>  
-            </div> `;
+           <a href="./inex.html" onclick="beginGame('${players[j].uid}')" > 
+           <img class="userImg" src='${players[j].file}'/></a>
+           <button onclick="handleDeleteUser('${players[j].uid}')">Remove</button>  
+           </div> `;
   }
   const html: HTMLDivElement | null = document.querySelector("#listofUsers");
   if (html !== null) 
@@ -103,4 +104,8 @@ try {
  catch (error) {
   console.error(Error)
 }
+}
+
+function handleDeleteUser(uid:string){
+  debugger;
 }

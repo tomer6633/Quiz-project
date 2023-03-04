@@ -3,6 +3,7 @@ function renderScoreBoard(players) {
     try {
         if (!players || !Array.isArray(players))
             throw new Error("players is not an array");
+        players.sort(function (a, b) { return parseFloat(a.score) - parseFloat(b.score); });
         var page = players.map(function (player) {
             return "<div class=\"line\" >\n                <img class=\"small_logo\" src='" + player.file + "'/>\n                <div>" + player.name + " </div>\n                <div>" + player.score + " </div>\n                </div>";
         }).join(" ");
@@ -23,6 +24,19 @@ function getPlayersFromStorage() {
             return emptyPlayers;
         var players = JSON.parse(playersString);
         return (players);
+    }
+    catch (error) {
+        console.error(error);
+        return (undefined);
+    }
+}
+function getUIDFromStorage() {
+    try {
+        var emptyUID = "";
+        var uidFromStorage = localStorage.getItem("uid");
+        if (!uidFromStorage)
+            return emptyUID;
+        return (uidFromStorage);
     }
     catch (error) {
         console.error(error);

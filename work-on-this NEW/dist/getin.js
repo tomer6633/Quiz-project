@@ -79,7 +79,7 @@ function renderusers(players) {
     try {
         var page = "";
         for (var j = 0; j <= players.length - 1; j++) {
-            page += "<div class=\"recurring_user\">\n           <a href=\"./inex.html\" onclick=\"beginGame('" + players[j].uid + "')\" > <img class=\"userImg\" src='" + players[j].file + "'/></a>\n             <button onclick=\"handleDeleteUser('" + players[j].uid + "')\">Remove</button>  \n            </div> ";
+            page += "<div class=\"recurring_user\">\n           <a href=\"./inex.html\" onclick=\"beginGame('" + players[j].uid + "')\" > \n           <img class=\"userImg\" src='" + players[j].file + "'/></a>\n           <button onclick=\"handleDeleteUser('" + players[j].uid + "')\">Remove</button>  \n           </div> ";
         }
         var html = document.querySelector("#listofUsers");
         if (html !== null)
@@ -88,4 +88,7 @@ function renderusers(players) {
     catch (error) {
         console.error(Error);
     }
+}
+function handleDeleteUser(uid) {
+    debugger;
 }

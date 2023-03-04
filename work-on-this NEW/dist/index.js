@@ -34,21 +34,20 @@ resumeButton.addEventListener("click", function () {
 });
 //start game//
 function beginGame(uid) {
-    hendleLevel(ev, uid);
+    localStorage.setItem("uid", uid.toString());
 }
-function hendleLevel(ev, uid) {
+function hendleLevel(ev) {
     try {
-        debugger;
         ev.preventDefault();
         var level = ev.target.elements.levels.value;
-        showRelevntLevels(level, uid);
+        showRelevntLevels(level);
     }
     catch (error) {
         console.error(error);
     }
 }
 // let level=prompt("choose a level");
-function showRelevntLevels(level, uid) {
+function showRelevntLevels(level) {
     try {
         if (level == "level1") {
             var boxes_1 = document.querySelectorAll(".level1");
@@ -56,7 +55,9 @@ function showRelevntLevels(level, uid) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_1, 3, uid);
+            var uid = getUIDFromStorage();
+            if (uid)
+                playGame(boxes_1, 3, uid);
         }
         if (level == "level2") {
             var boxes_2 = document.querySelectorAll(".level1,.level2");
@@ -64,11 +65,15 @@ function showRelevntLevels(level, uid) {
                 var item = node;
                 item.style.display = "none";
             });
-            playGame(boxes_2, 6, uid);
+            var uid = getUIDFromStorage();
+            if (uid)
+                playGame(boxes_2, 6, uid);
         }
         if (level == "level3") {
             var boxes_3 = document.querySelectorAll(".level1,.level2,.level3");
-            playGame(boxes_3, 10, uid);
+            var uid = getUIDFromStorage();
+            if (uid)
+                playGame(boxes_3, 10, uid);
         }
     }
     catch (error) {
@@ -106,10 +111,20 @@ function playGame(boxes, numOfPairs, uid) {
                         matchCounter++;
                         score += 10;
                         scoreDisplay.textContent = "score:" + score;
-                        if (matchCounter === numOfPairs)
+                        if (matchCounter === numOfPairs) {
                             setTimeout(function () {
                                 return winner === null || winner === void 0 ? void 0 : winner.style.display = "block";
                             }, winner === null || winner === void 0 ? void 0 : winner.innerHTML = "congratulations ! you're won the ultimate memory game <br> your score is " + score + " <br> <a href=\"scoreBoard.html\" id=\"scoreBtn\">score borad</a>", 2000);
+                            // update score to Players
+                            debugger;
+                            var players = getPlayersFromStorage();
+                            for (var i = 0; i <= players.length - 1; i++) {
+                                if (players[i].uid === uid) {
+                                    players[i].score = score;
+                                    localStorage.setItem("players", JSON.stringify(players));
+                                }
+                            }
+                        }
                     }
                     else {
                         first.classList.add("hide");
