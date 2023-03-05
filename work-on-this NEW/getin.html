@@ -15,9 +15,10 @@
 
 </head>
 <body onload="renderusers(getPlayersFromStorage())">
-    
     <div class="container">
        <p> the ultimate memory game </p>
+        <h>click on your picture to login or create a new profile</h>
+
        <div id="listofUsers"></div>
        <form action="getin.html" id="form">
         <div class="container__login">
@@ -29,7 +30,9 @@
                 <input type="file" id="file" name="file">
             </div>
             <div onclick="ageCalculator()" id="send">
-                <a href="./inex.html" onsubmit="submit">login</a>
+                <!-- <a href="./inex.html" onsubmit="submit">login</a> -->
+                <a href="" onsubmit="submit" onsubmit="renderusers(getPlayersFromStorage())">create player</a>
+
         </div>
         </div>
        </form>
