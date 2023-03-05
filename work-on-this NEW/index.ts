@@ -1,7 +1,7 @@
 const scoreDisplay: any = document.querySelector("#score");
 const boxes = document.querySelectorAll(".box");
-// const winner = document.querySelector("#winnerMas")
-const winner = document.getElementById("#winnerMas") as HTMLElement;
+const winner = document.querySelector("#winnerMas") as HTMLElement
+// const winner = document.getElementById("#winnerMas") as HTMLElement;
 //timer and push
 let intervalId;
 let time = 0;
@@ -128,7 +128,7 @@ function playGame(boxes: NodeListOf<Element>,numOfPairs:number,uid:string) {
             scoreDisplay.textContent = "score:" + score;
             if (matchCounter ===numOfPairs){
               setTimeout(() => {
-                winner.style.display = "block";
+                winner.style.display = `block`;
                 winner.innerHTML = `Congratulations! You've won the ultimate memory game.<br>Your score is ${score}.<br><a href="scoreBoard.html" id="scoreBtn">Score Board</a>`;
               }, 2000);
                   // update score to Players

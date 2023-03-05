@@ -1,7 +1,7 @@
 var scoreDisplay = document.querySelector("#score");
 var boxes = document.querySelectorAll(".box");
-// const winner = document.querySelector("#winnerMas")
-var winner = document.getElementById("#winnerMas");
+var winner = document.querySelector("#winnerMas");
+// const winner = document.getElementById("#winnerMas") as HTMLElement;
 //timer and push
 var intervalId;
 var time = 0;
