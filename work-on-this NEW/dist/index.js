@@ -1,6 +1,7 @@
 var scoreDisplay = document.querySelector("#score");
 var boxes = document.querySelectorAll(".box");
-var winner = document.querySelector("#winnerMas");
+// const winner = document.querySelector("#winnerMas")
+var winner = document.getElementById("#winnerMas");
 //timer and push
 var intervalId;
 var time = 0;
@@ -113,8 +114,9 @@ function playGame(boxes, numOfPairs, uid) {
                         scoreDisplay.textContent = "score:" + score;
                         if (matchCounter === numOfPairs) {
                             setTimeout(function () {
-                                return winner === null || winner === void 0 ? void 0 : winner.style.display = "block";
-                            }, winner === null || winner === void 0 ? void 0 : winner.innerHTML = "congratulations ! you're won the ultimate memory game <br> your score is " + score + " <br> <a href=\"scoreBoard.html\" id=\"scoreBtn\">score borad</a>", 2000);
+                                winner.style.display = "block";
+                                winner.innerHTML = "Congratulations! You've won the ultimate memory game.<br>Your score is " + score + ".<br><a href=\"scoreBoard.html\" id=\"scoreBtn\">Score Board</a>";
+                            }, 2000);
                             // update score to Players
                             debugger;
                             var players = getPlayersFromStorage();
