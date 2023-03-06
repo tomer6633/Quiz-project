@@ -218,16 +218,40 @@ main {
 }
 
 .winnerMas {
-  background-color: #c44343;
+  background-color: #582f2f;
   height: 15rem;
   width: 25rem;
-  position: absolute;
-  top: 25rem;
-  right: 35rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 5;
   display: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.winnerMas h1 {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .winnerMas a {
   background-color: #67c1ac;
   border-radius: 25rem;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+.winnerMas a:hover {
+  background-color: #53a395;
 }
