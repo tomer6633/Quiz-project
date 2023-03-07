@@ -17,14 +17,16 @@
 <body onload="renderusers(getPlayersFromStorage())">
     <div class="container">
        <p> the ultimate memory game </p>
-        <h>click on your picture to login or create a new profile</h>
 
+       <div id="choosePlayerHeadline">click on your picture to login </div>
        <div id="listofUsers"></div>
+        
+       <label for="file" id="uplodebtn">create new profile</label>
+
        <form action="getin.html" id="form">
         <div class="container__login">
             <input type="text" placeholder="enter your name" id="name" name="name" required>
             <input type="date" name="dob" id="dob" required>
-            <label for="file" id="uplodebtn">choose an avatar</label>
             <div class="container__login--pfp" id="container">
                 <img src="./imgs/blue.jpeg" alt="" id="photo">
                 <input type="file" id="file" name="file">

@@ -148,8 +148,9 @@ p:after {
     opacity: 0;
   }
 }
-#recurring_user {
+.recurring_user {
   display: flex;
+  flex-direction: column;
   height: 100px;
   width: 100px;
 }
@@ -162,4 +163,16 @@ p:after {
 .userImg {
   height: 50px;
   width: 50px;
+  border-radius: 50%;
+}
+
+#choosePlayerHeadline {
+  width: 35rem;
+  height: 5vh;
+  color: white;
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: 5px;
 }
