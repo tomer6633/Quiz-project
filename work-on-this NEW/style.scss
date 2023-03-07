@@ -1,10 +1,11 @@
+@import "https://fonts.googleapis.com/css?family=Press%20Start%202P";
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  background-image: url("https://img.freepik.com/premium-photo/80-s-retro-grid-mountain-background-80s-retro-art-scene_83608-85.jpg?w=2000");
+  background-image: url(../imgs/arcade-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -48,8 +49,10 @@ main {
 .box {
   width: 10vw;
   height: 12.5vh;
-  background-color: darkblue;
-  color: transparent;
+background-image: url("https://wallpaper.dog/large/20480510.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+color: transparent;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   display: flex;
@@ -69,13 +72,15 @@ main {
 }
 
 .show {
-  animation: show 2s forwards;
+  animation: show 1s forwards;
   transform: rotateY(180deg);
 }
 
 @keyframes show {
   0% {
-    background-color: darkblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://wallpaper.dog/large/20480510.jpg");
     color: transparent;
     opacity: 1;
   }
@@ -90,7 +95,7 @@ main {
 }
 
 .hide {
-  animation: hide 2s forwards;
+  animation: hide 1s forwards;
   transform: rotateY(180deg);
 }
 
@@ -104,7 +109,9 @@ main {
     opacity: 0.5;
   }
   100% {
-    background-color: darkblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://wallpaper.dog/large/20480510.jpg");
     color: transparent;
     opacity: 0;
   }
@@ -116,7 +123,7 @@ main {
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(0, 30, 255);
+      background-color: #4b0f8b;
   color: white;
   padding: 10px;
   font-size: 24px;
@@ -124,15 +131,17 @@ main {
 }
 
   .level1 {
-    img {
-        width: 10vw;
-        height: 12.5vh;
-        opacity: 1;
-    }
+    // img {
+    //     width: 10vw;
+    //     height: 12.5vh;
+    //     opacity: 1;
+    // }
 
     width: 10vw;
     height: 12.5vh;
-    background-color: darkblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://wallpaper.dog/large/20480510.jpg");
     color: transparent;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -146,15 +155,17 @@ main {
 }
 
 .level2 {
-    img {
-        width: 10vw;
-        height: 12.5vh;
-        opacity: 1;
-    }
+    // img {
+    //     width: 10vw;
+    //     height: 12.5vh;
+    //     opacity: 1;
+    // }
 
     width: 10vw;
     height: 12.5vh;
-    background-color: darkblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://wallpaper.dog/large/20480510.jpg");
     color: transparent;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -168,15 +179,17 @@ main {
 }
 
 .level3 {
-    img {
-        width: 10vw;
-        height: 12.5vh;
-        opacity: 1;
-    }
+    // img {
+    //     width: 10vw;
+    //     height: 12.5vh;
+    //     opacity: 1;
+    // }
 
     width: 10vw;
     height: 12.5vh;
-    background-color: darkblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://wallpaper.dog/large/20480510.jpg");
     color: transparent;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -208,17 +221,6 @@ main {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       display: inline-block;
       position: relative;
-  
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: #fff;
-        top: -10px;
-        z-index: -1;
-      }
-  
       &:before {
         left: -20px;
         transform: rotate(45deg);
@@ -231,7 +233,12 @@ main {
     }
   }
   .winnerMas {
-    background-color: #582f2f;
+    font-family: 'Press Start 2P';
+    font-size: 1rem;
+    line-height: 2;
+    height: 100%;
+    background-color: hwb(292 4% 76%);
+    text-transform: uppercase;
     height: 20rem;
     width: 30rem;
     position: fixed;
@@ -240,13 +247,11 @@ main {
     transform: translate(-50%, -50%);
     z-index: 5;
     display: none;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;    padding: 2rem;
+
     h1{
-      color: #fff;
-    font-family: Arial, sans-serif;
+      text-decoration: none;
+      color: #fff090;
     font-size: 20px;
     font-weight: bold;
     position: relative;
@@ -254,8 +259,20 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     }
+
+    span{
+      position: relative;
+      margin: 22%;
+    }
+
+
+    #yourScore{
+      margin-left: 20%;
+    }
+
+
     #scoreBtn {
-      background-color: #67c1ac;
+      background-color: #4b0f8b;
       position: absolute;
       border-radius: 25rem;
       color: #fff;
@@ -267,11 +284,13 @@ main {
       font-weight: bold;
       transition: background-color 0.3s ease;
       margin-left: 10rem;
-      margin-top: 10rem;
+      margin-top: 6rem;
 
       &:hover {
         background-color: #53a395;
       }
     }
   }
+  
+
   

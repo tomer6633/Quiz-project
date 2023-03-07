@@ -115,7 +115,7 @@ function playGame(boxes, numOfPairs, uid) {
                         if (matchCounter === numOfPairs) {
                             setTimeout(function () {
                                 winner.style.display = "block";
-                                winner.innerHTML = "<div></div> <h1> Congratulations! You've won the ultimate memory game.<br>Your score is " + score + ".\n                <br></h1><a href=\"scoreBoard.html\" id=\"scoreBtn\">Score Board</a><div/>\n            ";
+                                winner.innerHTML = "<div></div><h1><span>Congratulations!<br><div id=\"yourScore\">Your score is " + score + "</div></span>\n                <br></h1><a href=\"scoreBoard.html\" id=\"scoreBtn\">Score Board</a><div/>\n            ";
                             }, 2000);
                             // update score to Players
                             debugger;

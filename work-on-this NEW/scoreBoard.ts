@@ -6,9 +6,13 @@ function renderScoreBoard(players:Player[]){
         players.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
         const page=players.map((player) => {
                 return `<div class="line" >
+                <i class="fa-solid fa-arrow-right"></i>
                 <img class="small_logo" src='${player.file}'/>
-                <div>${player.name} </div>
-                <div>${player.score} </div>
+               
+                <div class="line__player_name">${player.name}</div>
+                
+                <div class="line__player_score">${player.score} </div>
+               
                 </div>`
                }).join(" ");
 

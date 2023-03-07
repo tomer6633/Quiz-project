@@ -120,8 +120,9 @@ function playGame(boxes: NodeListOf<Element>, numOfPairs: number, uid: string) {
             scoreDisplay.textContent = "score:" + score;
             if (matchCounter === numOfPairs) {
               setTimeout(() => {
+                
                 winner.style.display = `block`;
-                winner.innerHTML = `<div></div> <h1> Congratulations! You've won the ultimate memory game.<br>Your score is ${score}.
+                winner.innerHTML = `<div></div><h1><span>Congratulations!<br><div id="yourScore">Your score is ${score}</div></span>
                 <br></h1><a href="scoreBoard.html" id="scoreBtn">Score Board</a><div/>
             `;
               }, 2000);
