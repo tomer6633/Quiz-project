@@ -241,6 +241,9 @@ main {
     z-index: 5;
     display: none;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h1{
       color: #fff;
     font-family: Arial, sans-serif;
