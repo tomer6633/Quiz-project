@@ -21,11 +21,12 @@ function startGame() {
         }, 1000);
     }
 }
-stopButton.addEventListener("click", function () {
+stopButton.addEventListener("click", stopTimer);
+function stopTimer() {
     lastStopTime = time;
     clearInterval(intervalId);
     intervalId = undefined;
-});
+}
 resumeButton.addEventListener("click", function () {
     clearInterval(intervalId);
     intervalId = undefined;
@@ -113,6 +114,7 @@ function playGame(boxes, numOfPairs, uid) {
                         score += 10;
                         scoreDisplay.textContent = "score:" + score;
                         if (matchCounter === numOfPairs) {
+                            stopTimer();
                             setTimeout(function () {
                                 winner.style.display = "block";
                                 winner.innerHTML = "<div></div><h1><span>Congratulations!<br><div id=\"yourScore\">Your score is " + score + "</div></span>\n                <br></h1><a href=\"scoreBoard.html\" id=\"scoreBtn\">Score Board</a><div/>\n            ";

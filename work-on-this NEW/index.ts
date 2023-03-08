@@ -24,11 +24,13 @@ function startGame() {
   }
 }
 
-stopButton.addEventListener("click", () => {
+stopButton.addEventListener("click", stopTimer);
+function stopTimer() {
   lastStopTime = time;
   clearInterval(intervalId);
   intervalId = undefined;
-});
+}
+
 
 resumeButton.addEventListener("click", () => {
   clearInterval(intervalId);
@@ -119,6 +121,7 @@ function playGame(boxes: NodeListOf<Element>, numOfPairs: number, uid: string) {
             score += 10;
             scoreDisplay.textContent = "score:" + score;
             if (matchCounter === numOfPairs) {
+              stopTimer()
               setTimeout(() => {
                 
                 winner.style.display = `block`;
