@@ -106,5 +106,18 @@ try {
 }
 }
 
-function handleDeleteUser(uid:any){
+function handleDeleteUser(uid:string){
+  try {
+    const playersArray=getPlayersFromStorage();
+
+    const index = playersArray.findIndex((Player) => Player.uid === uid);
+    if (index === -1) throw new Error("player not found");
+    playersArray.splice(index, 1);
+    localStorage.setItem("players", JSON.stringify(playersArray))
+    renderusers(playersArray);
+
+
+  } catch (error) {
+    console.error(error);
+  }
 }

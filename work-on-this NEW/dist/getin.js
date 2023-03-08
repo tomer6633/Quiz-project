@@ -90,5 +90,16 @@ function renderusers(players) {
     }
 }
 function handleDeleteUser(uid) {
-    debugger;
+    try {
+        var playersArray = getPlayersFromStorage();
+        var index = playersArray.findIndex(function (Player) { return Player.uid === uid; });
+        if (index === -1)
+            throw new Error("player not found");
+        playersArray.splice(index, 1);
+        localStorage.setItem("players", JSON.stringify(playersArray));
+        renderusers(playersArray);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
