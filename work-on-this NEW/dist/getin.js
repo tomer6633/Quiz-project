@@ -48,12 +48,12 @@ sendBtn === null || sendBtn === void 0 ? void 0 : sendBtn.addEventListener("clic
     PlayersFromStorage.push(new Player(name, dateOfBirth, file));
     localStorage.setItem("players", JSON.stringify(PlayersFromStorage));
     // localStorage.setItem('photo',pfp);
-    file === null || file === void 0 ? void 0 : file.addEventListener("change", function (ev) {
-        var image = ev.target.file[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(image);
-        reader.addEventListener("load", function () {
-        });
+});
+file === null || file === void 0 ? void 0 : file.addEventListener("change", function (ev) {
+    var image = ev.target.file[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.addEventListener("load", function () {
     });
 });
 file === null || file === void 0 ? void 0 : file.addEventListener("change", function () {

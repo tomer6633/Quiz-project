@@ -55,12 +55,12 @@ sendBtn?.addEventListener("click", (e) => {
 
   // localStorage.setItem('photo',pfp);
 
-  file?.addEventListener("change", (ev) => {
-    const image = ev.target.file[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.addEventListener("load", () => {
-    });
+});
+file?.addEventListener("change", (ev:any) => {
+  const image = ev.target.file[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(image);
+  reader.addEventListener("load", () => {
   });
 });
 
