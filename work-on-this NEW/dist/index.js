@@ -13,19 +13,29 @@ var timeDisplay = document.querySelector(".time");
 scoreDisplay.textContent = "score:";
 startButton.addEventListener("click", startGame);
 function startGame() {
-    hasGameStarted = true;
-    if (!intervalId) {
-        intervalId = setInterval(function () {
-            time += 1;
-            timeDisplay.textContent = time.toString();
-        }, 1000);
+    try {
+        hasGameStarted = true;
+        if (!intervalId) {
+            intervalId = setInterval(function () {
+                time += 1;
+                timeDisplay.textContent = time.toString();
+            }, 1000);
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }
 stopButton.addEventListener("click", stopTimer);
 function stopTimer() {
-    lastStopTime = time;
-    clearInterval(intervalId);
-    intervalId = undefined;
+    try {
+        lastStopTime = time;
+        clearInterval(intervalId);
+        intervalId = undefined;
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 resumeButton.addEventListener("click", function () {
     clearInterval(intervalId);

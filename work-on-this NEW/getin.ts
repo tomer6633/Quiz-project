@@ -2,24 +2,28 @@ let sendBtn = document.getElementById("send");
 let form = document.getElementById("form");
 const imgDiv = document.querySelector("#container");
 const img = document.querySelector("#photo");
-const file = document.querySelector("#file");
+const file = document.querySelector<HTMLInputElement>("#file");
 const uplodeBtn = document.querySelector("#uplodebtn");
 
-function ageCalculator() {
-  let userinput = document.getElementById("dob").value;
-  let dob = new Date(userinput);
+function ageCalculator(): void {
+  try {
+  const userinput: string | null = (<HTMLInputElement>document.getElementById("dob")).value;
+  const dob: Date = new Date(userinput);
   if (userinput == null || userinput == "") {
-    document.getElementById("message").innerHTML = "**Choose a date please!";
-    return false;
+    document.getElementById("message")!.innerHTML = "**Choose a date please!";
+    return;
   } else {
-    let month_diff = Date.now() - dob.getTime();
-
-    let age_dt = new Date(month_diff);
-    let year = age_dt.getUTCFullYear();
-    let age = Math.abs(year - 1970);
-    return console.log("Age is: " + age + " years. ");
+    const month_diff: number = Date.now() - dob.getTime();
+    const age_dt: Date = new Date(month_diff);
+    const year: number = age_dt.getUTCFullYear();
+    const age: number = Math.abs(year - 1970);
+    console.log("Age is: " + age + " years.");
+  }
+}catch (error) {
+    console.error(error)
   }
 }
+
 
 form?.addEventListener("submit", (e) => {
   e.preventDefault;
@@ -56,34 +60,40 @@ sendBtn?.addEventListener("click", (e) => {
     const reader = new FileReader();
     reader.readAsDataURL(image);
     reader.addEventListener("load", () => {
-      // localStorage.setItem('file',reader.result)
     });
   });
 });
 
-file?.addEventListener("change", function () {
-  const choosedFile = this.files[0];
+
+file?.addEventListener("change", function (this: HTMLInputElement) {
+  const choosedFile = this.files?.[0];
   if (choosedFile) {
     const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      img?.setAttribute("src", reader.result);
-      localStorage.setItem("file", reader.result);
+    reader.addEventListener("load", function(this: FileReaderEventMap["load"]) {
+      img?.setAttribute("src", reader.result as string);
+      localStorage.setItem("file", reader.result as string);
     });
     reader.readAsDataURL(choosedFile);
   }
 });
 
-function addStar() {
-  let s = document.createElement("div");
+function addStar(): void {
+  try {
+    
+  const s = document.createElement("div");
   s.className = "star";
-  s.style.setProperty("--size", Math.random() * 10 + 3 + "vmin");
-  s.style.left = Math.floor(Math.random() * 100) + "%";
-  s.style.top = Math.floor(Math.random() * 100) + "%";
+  s.style.setProperty("--size", `${Math.random() * 10 + 3}vmin`);
+  s.style.left = `${Math.floor(Math.random() * 100)}%`;
+  s.style.top = `${Math.floor(Math.random() * 100)}%`;
   s.onanimationend = function () {
     this.remove();
   };
-  document.body.appendChild(s);
+  document.body.appendChild(s);}
+  catch (error) {
+    console.error(error)
+  }
 }
+
 setInterval(addStar, 200);
 
 
@@ -102,7 +112,7 @@ try {
       html.innerHTML = page;
 }
  catch (error) {
-  console.error(Error)
+  console.error(error)
 }
 }
 
