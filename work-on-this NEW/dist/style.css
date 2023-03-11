@@ -3,11 +3,13 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: "Press Start 2P";
   font-size: 16px;
   background-image: url(../imgs/arcade-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
+  font-size: 0.5em;
 }
 
 .timer {
@@ -19,7 +21,7 @@ body {
 }
 
 .time {
-  font-size: 48px;
+  font-size: 3em;
 }
 
 button {
@@ -117,11 +119,11 @@ main {
   display: inline-block;
   top: 5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
   background-color: #4b0f8b;
   color: white;
   padding: 10px;
-  font-size: 24px;
+  font-size: 3em;
   font-weight: bold;
 }
 
@@ -183,7 +185,7 @@ main {
   text-align: center;
 }
 .nameOfGame h1 {
-  font-size: 48px;
+  font-size: 4em;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 8px;

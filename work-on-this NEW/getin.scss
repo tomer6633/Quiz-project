@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=VT323");
+
 body{
     overflow: hidden;
     // background: repeating-linear-gradient(
@@ -14,9 +16,10 @@ body{
 }
 
 .container{
-    font-family: "Audiowide", sans-serif;
+    font-family: "VT323", monospace;
     font-style: italic;
     background-color: #000;
+    font-size: 2em;
     // background-image: url(../imgs/arcade-background.jpg);
     // background-repeat: no-repeat;
     // background-size: cover;
@@ -44,6 +47,7 @@ body{
       //   outline: 1px solid white;
     }
     &__login{
+      font-family: "Audiowide", sans-serif;
         margin-top:2rem ;
         display: flex;
         flex-direction: column;

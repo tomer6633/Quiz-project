@@ -12,6 +12,7 @@
     <script src="./dist/scoreBoard.js" defer></script>
     <!-- <link rel="stylesheet" href="./dist/scoreBoard.css"> -->
     <link rel="stylesheet" href="./dist/getin.css">
+    
 
 </head>
 <body onload="renderusers(getPlayersFromStorage())">
@@ -29,11 +30,13 @@
             <input type="date" name="dob" id="dob" required>
             <div class="container__login--pfp" id="container">
                 <img src="./imgs/blue.jpeg" alt="" id="photo">
-                <input type="file" id="file" name="file">
+                <input type="file" id="file" name="file" required>
             </div>
             <div onclick="ageCalculator()" id="send">
-                <!-- <a href="./inex.html" onsubmit="submit">login</a> -->
-                <a href="" onsubmit="submit" onsubmit="renderusers(getPlayersFromStorage())">create profile</a>
+                <a href="inex.html">
+                    <button type="submit" onsubmit="submit" onsubmit="renderusers(getPlayersFromStorage())">login</button>
+                </a>
+                
 
         </div>
         </div>
