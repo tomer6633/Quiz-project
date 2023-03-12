@@ -161,6 +161,7 @@ p:after {
 #listofUsers {
   display: flex;
   flex-direction: row;
+  overflow: auto;
 }
 
 .userImg {

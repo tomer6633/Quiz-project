@@ -1,22 +1,22 @@
-var scoreDisplay = document.querySelector("#score");
-var boxes = document.querySelectorAll(".box");
-var winner = document.querySelector("#winnerMas");
+const scoreDisplay = document.querySelector("#score");
+const boxes = document.querySelectorAll(".box");
+const winner = document.querySelector("#winnerMas");
 // const winner = document.getElementById("#winnerMas") as HTMLElement;
 //timer and push
-var intervalId;
-var time = 0;
-var lastStopTime = 0;
-var startButton = document.querySelector(".start");
-var stopButton = document.querySelector(".stop");
-var resumeButton = document.querySelector(".resume");
-var timeDisplay = document.querySelector(".time");
+let intervalId;
+let time = 0;
+let lastStopTime = 0;
+const startButton = document.querySelector(".start");
+const stopButton = document.querySelector(".stop");
+const resumeButton = document.querySelector(".resume");
+const timeDisplay = document.querySelector(".time");
 scoreDisplay.textContent = "score:";
 startButton.addEventListener("click", startGame);
 function startGame() {
     try {
         hasGameStarted = true;
         if (!intervalId) {
-            intervalId = setInterval(function () {
+            intervalId = setInterval(() => {
                 time += 1;
                 timeDisplay.textContent = time.toString();
             }, 1000);
@@ -37,7 +37,7 @@ function stopTimer() {
         console.error(error);
     }
 }
-resumeButton.addEventListener("click", function () {
+resumeButton.addEventListener("click", () => {
     clearInterval(intervalId);
     intervalId = undefined;
     time = 0;
@@ -51,7 +51,7 @@ function beginGame(uid) {
 function hendleLevel(ev) {
     try {
         ev.preventDefault();
-        var level = ev.target.elements.levels.value;
+        const level = ev.target.elements.levels.value;
         showRelevntLevels(level);
     }
     catch (error) {
@@ -62,46 +62,46 @@ function hendleLevel(ev) {
 function showRelevntLevels(level) {
     try {
         if (level == "level1") {
-            var boxes_1 = document.querySelectorAll(".level1");
+            const boxes = document.querySelectorAll(".level1");
             document.querySelectorAll(".level2,.level3").forEach(function (node) {
-                var item = node;
+                let item = node;
                 item.style.display = "none";
             });
-            var uid = getUIDFromStorage();
+            const uid = getUIDFromStorage();
             if (uid)
-                playGame(boxes_1, 3, uid);
+                playGame(boxes, 3, uid);
         }
         if (level == "level2") {
-            var boxes_2 = document.querySelectorAll(".level1,.level2");
+            const boxes = document.querySelectorAll(".level1,.level2");
             document.querySelectorAll(".level3").forEach(function (node) {
-                var item = node;
+                let item = node;
                 item.style.display = "none";
             });
-            var uid = getUIDFromStorage();
+            const uid = getUIDFromStorage();
             if (uid)
-                playGame(boxes_2, 6, uid);
+                playGame(boxes, 6, uid);
         }
         if (level == "level3") {
-            var boxes_3 = document.querySelectorAll(".level1,.level2,.level3");
-            var uid = getUIDFromStorage();
+            const boxes = document.querySelectorAll(".level1,.level2,.level3");
+            const uid = getUIDFromStorage();
             if (uid)
-                playGame(boxes_3, 10, uid);
+                playGame(boxes, 10, uid);
         }
     }
     catch (error) {
         console.error(error);
     }
 }
-var hasGameStarted = false;
-var first;
-var second;
-var matchCounter = 0;
-var score = 0;
+let hasGameStarted = false;
+let first;
+let second;
+let matchCounter = 0;
+let score = 0;
 function playGame(boxes, numOfPairs, uid) {
     try {
         boxes.forEach(function (box) {
             // מסדר את הbox במסך בסדר אקראי לפי מספר
-            var randomNum = Math.floor(Math.random() * 12);
+            const randomNum = Math.floor(Math.random() * 12);
             box.style.order = randomNum;
             box.addEventListener("click", function Game() {
                 if (!hasGameStarted) {
@@ -125,14 +125,16 @@ function playGame(boxes, numOfPairs, uid) {
                         scoreDisplay.textContent = "score:" + score;
                         if (matchCounter === numOfPairs) {
                             stopTimer();
-                            setTimeout(function () {
-                                winner.style.display = "block";
-                                winner.innerHTML = "<div></div><h1><span>Congratulations!<br><div id=\"yourScore\">Your score is " + score + "</div></span>\n                <br></h1><a href=\"scoreBoard.html\" id=\"scoreBtn\">Score Board</a><div/>\n            ";
+                            setTimeout(() => {
+                                winner.style.display = `block`;
+                                winner.innerHTML = `<div></div><h1><span>Congratulations!<br><div id="yourScore">Your score is ${score}</div></span>
+                <br></h1><a href="scoreBoard.html" id="scoreBtn">Score Board</a><div/>
+            `;
                             }, 2000);
                             // update score to Players
                             debugger;
-                            var players = getPlayersFromStorage();
-                            for (var i = 0; i <= players.length - 1; i++) {
+                            const players = getPlayersFromStorage();
+                            for (let i = 0; i <= players.length - 1; i++) {
                                 if (players[i].uid === uid) {
                                     players[i].score = score;
                                     localStorage.setItem("players", JSON.stringify(players));
@@ -143,7 +145,7 @@ function playGame(boxes, numOfPairs, uid) {
                     else {
                         first.classList.add("hide");
                         second.classList.add("hide");
-                        setTimeout(function () {
+                        setTimeout(() => {
                             first.classList.remove("show");
                             second.classList.remove("show");
                             first.classList.remove("hide");

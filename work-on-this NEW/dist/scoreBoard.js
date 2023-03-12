@@ -1,13 +1,19 @@
 renderScoreBoard(getPlayersFromStorage());
 function renderScoreBoard(players) {
     try {
+        console.log(players);
         if (!players || !Array.isArray(players))
             throw new Error("players is not an array");
-        players.sort(function (a, b) { return parseFloat(b.score) - parseFloat(a.score); });
-        var page = players.map(function (player) {
-            return "<div class=\"line\" >\n                <i class=\"fa-solid fa-arrow-right\"></i>\n                <img class=\"small_logo\" src='" + player.file + "'/>\n               \n                <div class=\"line__player_name\">" + player.name + "</div>\n                \n                <div class=\"line__player_score\">" + player.score + " </div>\n               \n                </div>";
+        players.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+        const page = players.map((player) => {
+            return `<div class="line" >
+                <i class="fa-solid fa-arrow-right"></i>
+                <img class="small_logo" src='${player.file}'/>
+                <div class="line__player_name">${player.name}</div>
+                <div class="line__player_score">${player.score} </div>
+                </div>`;
         }).join(" ");
-        var html = document.querySelector(".scoreBoard");
+        const html = document.querySelector(".scoreBoard");
         if (html !== null) {
             html.innerHTML = page;
         }
@@ -18,11 +24,11 @@ function renderScoreBoard(players) {
 }
 function getPlayersFromStorage() {
     try {
-        var emptyPlayers = [];
-        var playersString = localStorage.getItem("players");
+        const emptyPlayers = [];
+        const playersString = localStorage.getItem("players");
         if (!playersString)
             return emptyPlayers;
-        var players = JSON.parse(playersString);
+        const players = JSON.parse(playersString);
         return (players);
     }
     catch (error) {
@@ -32,8 +38,8 @@ function getPlayersFromStorage() {
 }
 function getUIDFromStorage() {
     try {
-        var emptyUID = "";
-        var uidFromStorage = localStorage.getItem("uid");
+        const emptyUID = "";
+        const uidFromStorage = localStorage.getItem("uid");
         if (!uidFromStorage)
             return emptyUID;
         return (uidFromStorage);
