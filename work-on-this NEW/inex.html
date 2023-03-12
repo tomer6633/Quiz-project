@@ -18,8 +18,8 @@
 <body>
 <div class="nameOfGame"><h1>The ultimate memory game</h1></div>
 
-    <div id="score"></div>
-        <form  class="levelsFormDesign" onsubmit="hendleLevel(event)">
+    
+        <form class="formSelectLevel" onsubmit="hendleLevel(event)">
       <label for="levels"></label>
           <select id="levels" name="levels" class="selectVal">
             
@@ -27,7 +27,7 @@
               <option value="level2">Level 2= 6 pairs</option>
               <option value="level3">Level 3= 10 pairs</option>
           </select>
-          <input type="submit" value="select level of difficulty to start">
+          <input type="submit" class="selectVal" value="select level of difficulty to start">
       </form>
 <div class="timer">
     <h1 class="time">00:00</h1>
@@ -35,6 +35,7 @@
     <button class="stop">Pause timer</button>
     <button class="resume">Restart</button>
     </div>    
+    <div id="score"></div>
 
   <div class="winnerMas" id="winnerMas">
     <a href="scoreBoard.html">score borad</a>

@@ -25,7 +25,7 @@ body {
 }
 
 button {
-  font-size: 24px;
+  font-size: 15px;
   padding: 10px 20px;
   margin: 8px;
   background-color: #ffffff;
@@ -261,8 +261,22 @@ main {
   background-color: #53a395;
 }
 
-.levelsFormDesign{
+.levelsFormDesign {
   margin: auto;
   position: relative;
   left: 45%;
-  }
+}
+
+.selectVal {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.formSelectLevel {
+  margin-left: 30%;
+  margin-top: 1%;
+}
