@@ -1,22 +1,22 @@
-const sendBtn = document.getElementById("send");
-const form = document.getElementById("form");
-const imgDiv = document.querySelector("#container");
-const img = document.querySelector("#photo");
-const file = document.querySelector("#file");
-const uplodeBtn = document.querySelector("#uplodebtn");
+var sendBtn = document.getElementById("send");
+var form = document.getElementById("form");
+var imgDiv = document.querySelector("#container");
+var img = document.querySelector("#photo");
+var file = document.querySelector("#file");
+var uplodeBtn = document.querySelector("#uplodebtn");
 function ageCalculator() {
     try {
-        const userinput = document.getElementById("dob").value;
-        const dob = new Date(userinput);
+        var userinput = document.getElementById("dob").value;
+        var dob = new Date(userinput);
         if (userinput == null || userinput == "") {
             document.getElementById("message").innerHTML = "**Choose a date please!";
             return;
         }
         else {
-            const month_diff = Date.now() - dob.getTime();
-            const age_dt = new Date(month_diff);
-            const year = age_dt.getUTCFullYear();
-            const age = Math.abs(year - 1970);
+            var month_diff = Date.now() - dob.getTime();
+            var age_dt = new Date(month_diff);
+            var year = age_dt.getUTCFullYear();
+            var age = Math.abs(year - 1970);
             console.log("Age is: " + age + " years.");
         }
     }
@@ -24,31 +24,31 @@ function ageCalculator() {
         console.error(error);
     }
 }
-form?.addEventListener("submit", (e) => {
+form === null || form === void 0 ? void 0 : form.addEventListener("submit", function (e) {
     e.preventDefault;
 });
 if (!sendBtn)
     throw new Error("sendBtn is null");
-sendBtn.addEventListener("click", (e) => {
+sendBtn.addEventListener("click", function (e) {
     try {
-        const nameElement = document.getElementById("name");
-        const DateOfBirthElement = document.getElementById("dob");
+        var nameElement = document.getElementById("name");
+        var DateOfBirthElement = document.getElementById("dob");
         if (!nameElement)
             throw new Error("could'nt find the name element");
-        const name = nameElement.value.toString();
+        var name = nameElement.value.toString();
         if (!DateOfBirthElement)
             throw new Error("couldnt find date of birth element");
-        const dateOfBirth = new Date(DateOfBirthElement.value);
+        var dateOfBirth = new Date(DateOfBirthElement.value);
         if (!dateOfBirth)
             throw new Error("couldnt find the date");
-        const fileArrey = localStorage.getItem("file");
+        var fileArrey = localStorage.getItem("file");
         if (!fileArrey)
             throw new Error("couldnt find the date");
-        const file = fileArrey;
-        const tempScore = 0;
-        const PlayersFromStorage = getPlayersFromStorage();
+        var file_1 = fileArrey;
+        var tempScore = 0;
+        var PlayersFromStorage = getPlayersFromStorage();
         debugger;
-        PlayersFromStorage.push(new Player(name, dateOfBirth, file, tempScore));
+        PlayersFromStorage.push(new Player(name, dateOfBirth, file_1, tempScore));
         console.log(PlayersFromStorage);
         localStorage.setItem("players", JSON.stringify(PlayersFromStorage));
     }
@@ -56,36 +56,44 @@ sendBtn.addEventListener("click", (e) => {
         console.error(error);
     }
 });
-file?.addEventListener("change", (ev) => {
-    const image = ev.target.file[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.addEventListener("load", () => {
-    });
-});
-file?.addEventListener("change", function () {
+file === null || file === void 0 ? void 0 : file.addEventListener("click", chooseFile);
+function chooseFile(ev) {
     try {
-        const choosedFile = this.files?.[0];
+        var image = ev.target.file[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(image);
+        reader.addEventListener("load", function () {
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+file === null || file === void 0 ? void 0 : file.addEventListener("change", uplodeFile);
+function uplodeFile() {
+    var _a;
+    try {
+        var choosedFile = (_a = this.files) === null || _a === void 0 ? void 0 : _a[0];
         if (choosedFile) {
-            const reader = new FileReader();
-            reader.addEventListener("load", function () {
-                img?.setAttribute("src", reader.result);
-                localStorage.setItem("file", reader.result);
+            var reader_1 = new FileReader();
+            reader_1.addEventListener("load", function () {
+                img === null || img === void 0 ? void 0 : img.setAttribute("src", reader_1.result);
+                localStorage.setItem("file", reader_1.result);
             });
-            reader.readAsDataURL(choosedFile);
+            reader_1.readAsDataURL(choosedFile);
         }
     }
     catch (error) {
         console.error(error);
     }
-});
+}
 function addStar() {
     try {
-        const s = document.createElement("div");
+        var s = document.createElement("div");
         s.className = "star";
-        s.style.setProperty("--size", `${Math.random() * 10 + 3}vmin`);
-        s.style.left = `${Math.floor(Math.random() * 100)}%`;
-        s.style.top = `${Math.floor(Math.random() * 100)}%`;
+        s.style.setProperty("--size", Math.random() * 10 + 3 + "vmin");
+        s.style.left = Math.floor(Math.random() * 100) + "%";
+        s.style.top = Math.floor(Math.random() * 100) + "%";
         s.onanimationend = function () {
             this.remove();
         };
@@ -98,15 +106,11 @@ function addStar() {
 setInterval(addStar, 200);
 function renderusers(players) {
     try {
-        let page = "";
-        for (let j = 0; j <= players.length - 1; j++) {
-            page += ` <div class="recurring_user" >
-    <a href="./inex.html" onclick="beginGame('${players[j].uid}')" > 
-    <img class="userImg" src='${players[j].file}'/></a>
-    <button onclick="handleDeleteUser('${players[j].uid}')">Remove</button>  
-    </div> `;
+        var page = "";
+        for (var j = 0; j <= players.length - 1; j++) {
+            page += " <div class=\"recurring_user\" >\n    <a href=\"./inex.html\" onclick=\"beginGame('" + players[j].uid + "')\" > \n    <img class=\"userImg\" src='" + players[j].file + "'/></a>\n    <button onclick=\"handleDeleteUser('" + players[j].uid + "')\">Remove</button>  \n    </div> ";
         }
-        const html = document.querySelector("#listofUsers");
+        var html = document.querySelector("#listofUsers");
         if (html !== null)
             html.innerHTML = page;
     }
@@ -116,8 +120,8 @@ function renderusers(players) {
 }
 function handleDeleteUser(uid) {
     try {
-        const playersArray = getPlayersFromStorage();
-        const index = playersArray.findIndex((Player) => Player.uid === uid);
+        var playersArray = getPlayersFromStorage();
+        var index = playersArray.findIndex(function (Player) { return Player.uid === uid; });
         if (index === -1)
             throw new Error("player not found");
         playersArray.splice(index, 1);
