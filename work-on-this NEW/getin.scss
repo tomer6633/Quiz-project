@@ -175,8 +175,8 @@ p:after{
     display: flex;
     column-gap: 15px;
     flex-direction: row;
-    width: 350px;
-    overflow-x: scroll;
+    max-width: 250px;
+    overflow-x: auto;
   }
 
   .userImg{
@@ -214,3 +214,7 @@ p:after{
     
   }
  
+  .deletUserButton{
+    width: 25px;
+    margin-left: 23%;
+  }

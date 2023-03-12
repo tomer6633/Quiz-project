@@ -114,7 +114,7 @@ function renderusers(players: Player[]) {
       page += ` <div class="recurring_user" >
     <a href="./inex.html" onclick="beginGame('${players[j].uid}')" > 
     <img class="userImg" src='${players[j].file}'/></a>
-    <button onclick="handleDeleteUser('${players[j].uid}')">Remove</button>  
+    <button class="deletUserButton" onclick="handleDeleteUser('${players[j].uid}')"><i class="fa fa-trash-o"></i></button>  
     </div> `;
     }
     const html: HTMLDivElement | null = document.querySelector("#listofUsers");
