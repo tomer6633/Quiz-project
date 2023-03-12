@@ -55,18 +55,22 @@ sendBtn.addEventListener("click", (e) => {
   }
 
 });
+file?.addEventListener("click", chooseFile);
+function chooseFile(ev){
+  try {
+    const image = ev.target.file[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.addEventListener("load", () => {
+    });
+  } catch (error) {
+    console.error(error)
+  }
 
+}
 
-file?.addEventListener("change", (ev: any) => {
-  const image = ev.target.file[0];
-  const reader = new FileReader();
-  reader.readAsDataURL(image);
-  reader.addEventListener("load", () => {
-  });
-});
-
-
-file?.addEventListener("change", function (this: HTMLInputElement) {
+file?.addEventListener("change",uplodeFile);
+function uplodeFile(){
   try {
     const choosedFile = this.files?.[0];
   if (choosedFile) {
@@ -80,8 +84,7 @@ file?.addEventListener("change", function (this: HTMLInputElement) {
   } catch (error) {
     console.error(error)
   }
-
-});
+}
 
 function addStar(): void {
   try {
