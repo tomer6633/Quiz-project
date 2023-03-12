@@ -260,3 +260,9 @@ main {
 .winnerMas #scoreBtn:hover {
   background-color: #53a395;
 }
+
+.levelsFormDesign{
+  margin: auto;
+  position: relative;
+  left: 45%;
+  }

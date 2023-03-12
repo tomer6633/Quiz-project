@@ -160,8 +160,10 @@ p:after {
 
 #listofUsers {
   display: flex;
+  column-gap: 15px;
   flex-direction: row;
-  overflow: auto;
+  width: 350px;
+  overflow-x: scroll;
 }
 
 .userImg {

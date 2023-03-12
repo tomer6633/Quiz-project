@@ -21,10 +21,11 @@
     <div id="score"></div>
 <div class="timer">
     <h1 class="time">00:00</h1>
-    <button class="start">Start</button>
-    <button class="stop">Stop</button>
+    <button class="start">Start/ Resume timer</button>
+    <button class="stop">Pause timer</button>
     <button class="resume">Restart</button>
-    <form onsubmit="hendleLevel(event)">
+    </div>    
+    <form  class="levelsFormDesign" onsubmit="hendleLevel(event)">
       <label for="levels"></label>
           <select id="levels" name="levels" class="selectVal">
             
@@ -32,9 +33,8 @@
               <option value="level2">Level 2= 6 pairs</option>
               <option value="level3">Level 3= 10 pairs</option>
           </select>
-          <input type="submit">
+          <input type="submit" value="select level of difficulty to start">
       </form>
-  </div>
   <div class="winnerMas" id="winnerMas">
     <a href="scoreBoard.html">score borad</a>
   </div>
