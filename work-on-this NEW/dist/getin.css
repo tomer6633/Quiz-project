@@ -182,3 +182,19 @@ p:after {
   flex-direction: column;
   letter-spacing: 5px;
 }
+
+.button {
+  background-color: transparent;
+  border: 1px solid #860958;
+  box-sizing: border-box;
+  color: #f3bffb;
+  font-size: 0.5em;
+  font-weight: 700;
+  padding: 16px 23px;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}

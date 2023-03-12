@@ -2,13 +2,6 @@
 
 body{
     overflow: hidden;
-    // background: repeating-linear-gradient(
-    //     to bottom,
-    //     #0f0a1e,
-    //     #0f0a1e 2px,
-    //     lighten(#0f0a1e, 3%) 2px,
-    //     lighten(#0f0a1e, 3%) 4px
-    //   )
       background-image: url("https://img.freepik.com/premium-photo/80-s-retro-grid-mountain-background-80s-retro-art-scene_83608-85.jpg?w=2000");
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,9 +13,6 @@ body{
     font-style: italic;
     background-color: #000;
     font-size: 2em;
-    // background-image: url(../imgs/arcade-background.jpg);
-    // background-repeat: no-repeat;
-    // background-size: cover;
     margin: auto;
     width: 35rem;
     height: 99vh;
@@ -37,15 +27,7 @@ body{
     2px 0 0 #91fcfe,
     4px 0 0 #4405fc;
     
-    form{
-      // margin-top:2rem ;
-      //   display: flex;
-      //   flex-direction: column;
-      //   width: 50%;
-      //   display: flex;
-      //   justify-content:center;
-      //   outline: 1px solid white;
-    }
+
     &__login{
       font-family: "Audiowide", sans-serif;
         margin-top:2rem ;
@@ -55,20 +37,17 @@ body{
         display: flex;
         align-items: center;
         justify-self: center;
-        // outline: 1px solid white;
         input{
           margin-bottom: 3rem;
           width: 10rem;
         }
        &--pfp{
-        // outline: 1px solid wite;
         width: 150%;
         display: flex;
         height: 10rem;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // margin-bottom: 3rem;
         position: relative;
         right: 2rem;
         gap: 0.7rem;
@@ -90,7 +69,6 @@ body{
        }
        label{
         margin-bottom: 1rem;
-        // outline: 1px solid #d79999;
         width:max-content;
         
         
@@ -217,3 +195,22 @@ p:after{
     flex-direction: column;
     letter-spacing: 5px;
   }
+
+ 
+  .button {
+    background-color: transparent;
+    border: 1px solid #860958;
+    box-sizing: border-box;
+    color: #f3bffb;
+    font-size: 0.5em;
+    font-weight: 700;
+    padding: 16px 23px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    
+  }
+ 
